@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "huTGD/hgObY=",
+  "success": true,
+  "projectFilePath": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Application\\myRecipeBook.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anton\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\mapster\\10.0.8\\mapster.10.0.8.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\mapster.core\\10.0.8\\mapster.core.10.0.8.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.9\\microsoft.extensions.dependencyinjection.10.0.9.nupkg.sha512",
+    "C:\\Users\\anton\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.9\\microsoft.extensions.dependencyinjection.abstractions.10.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

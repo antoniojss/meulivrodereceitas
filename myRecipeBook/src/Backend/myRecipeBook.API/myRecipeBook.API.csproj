@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\myRecipeBook.Communication\myRecipeBook.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\myRecipeBook.Exception\myRecipeBook.Exception.csproj" />
+    <ProjectReference Include="..\myRecipeBook.Application\myRecipeBook.Application.csproj" />
+    <ProjectReference Include="..\myRecipeBook.Infrastructure\myRecipeBook.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,159 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "myRecipeBook.Application/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "12.1.1",
+          "Mapster": "10.0.8",
+          "Microsoft.Extensions.DependencyInjection": "10.0.9",
+          "myRecipeBook.Communication": "1.0.0",
+          "myRecipeBook.Domain": "1.0.0",
+          "myRecipeBook.Exception": "1.0.0"
+        },
+        "runtime": {
+          "myRecipeBook.Application.dll": {}
+        }
+      },
+      "FluentValidation/12.1.1": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.1.0"
+          }
+        }
+      },
+      "Mapster/10.0.8": {
+        "dependencies": {
+          "Mapster.Core": "10.0.8"
+        },
+        "runtime": {
+          "lib/net10.0/Mapster.dll": {
+            "assemblyVersion": "10.0.8.0",
+            "fileVersion": "10.0.8.0"
+          }
+        }
+      },
+      "Mapster.Core/10.0.8": {
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {
+            "assemblyVersion": "10.0.8.0",
+            "fileVersion": "10.0.8.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/10.0.9": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.9"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.926.27113"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.9": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.926.27113"
+          }
+        }
+      },
+      "myRecipeBook.Communication/1.0.0": {
+        "runtime": {
+          "myRecipeBook.Communication.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "myRecipeBook.Domain/1.0.0": {
+        "runtime": {
+          "myRecipeBook.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "myRecipeBook.Exception/1.0.0": {
+        "runtime": {
+          "myRecipeBook.Exception.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "es/myRecipeBook.Exception.resources.dll": {
+            "locale": "es"
+          },
+          "pt-BR/myRecipeBook.Exception.resources.dll": {
+            "locale": "pt-BR"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "myRecipeBook.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FluentValidation/12.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw==",
+      "path": "fluentvalidation/12.1.1",
+      "hashPath": "fluentvalidation.12.1.1.nupkg.sha512"
+    },
+    "Mapster/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-61lfpYqea8kaVs5SpexI/2tySidrVZm5ppUT38CkoyyyclErPdh07qlBfpNOcbPcRZ+A5SGlZ2atFFolcDVmwQ==",
+      "path": "mapster/10.0.8",
+      "hashPath": "mapster.10.0.8.nupkg.sha512"
+    },
+    "Mapster.Core/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KV2IpL6jC2HR9Yul/MeyY+vSmeeXfM3lgBMdhORXtILYLph/n3lH7tvAdIE29CkSAoTy5naw1H+Y8665GBoMwA==",
+      "path": "mapster.core/10.0.8",
+      "hashPath": "mapster.core.10.0.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NijozhERJDIaJ4k5TSMy1jOi0cSC2HfkvRD/Sl+kGSSKgVbFnF4GxgtMN/MrzHB8D1JxIrD4xSer9Blh9v3axQ==",
+      "path": "microsoft.extensions.dependencyinjection/10.0.9",
+      "hashPath": "microsoft.extensions.dependencyinjection.10.0.9.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g41l/30G3K4B/d/L8kjux0+30e27c8D0FVQ/PFCpbekgfDpj9mnDhieP67EqXWvl1EWNeZh2rpR4F5B/jcDOHA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.9",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.9.nupkg.sha512"
+    },
+    "myRecipeBook.Communication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "myRecipeBook.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "myRecipeBook.Exception/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

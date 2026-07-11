@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\myRecipeBook.Communication\myRecipeBook.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\myRecipeBook.Exception\myRecipeBook.Exception.csproj" />
+    <ProjectReference Include="..\myRecipeBook.Domain\myRecipeBook.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

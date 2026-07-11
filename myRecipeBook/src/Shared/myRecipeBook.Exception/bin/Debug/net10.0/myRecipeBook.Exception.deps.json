@@ -1,0 +1,31 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "myRecipeBook.Exception/1.0.0": {
+        "runtime": {
+          "myRecipeBook.Exception.dll": {}
+        },
+        "resources": {
+          "es/myRecipeBook.Exception.resources.dll": {
+            "locale": "es"
+          },
+          "pt-BR/myRecipeBook.Exception.resources.dll": {
+            "locale": "pt-BR"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "myRecipeBook.Exception/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
