@@ -1,25 +1,33 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: .NET Core CI
 
 on:
   push:
-    branches: [ "Develop" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "Develop" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+    # 1. Baixa o código do repositório
     - uses: actions/checkout@v4
+
+    # 2. Configura o ambiente com o SDK do .NET
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 10.0.x # Altere para a versão do seu projeto (6.0, 7.0, 8.0, 9.0 etc.)
+
+    # 3. Restaura as dependências (NuGet)
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # 4. Compila o projeto sem baixar as dependências de novo
     - name: Build
-      run: dotnet build ./src/myRecipeBook.csproj
+      run: dotnet build --no-restore --configuration Release
+
+    # 5. Executa os testes automatizados
     - name: Test
-      run: dotnet test ./src/myRecipeBook.csproj
+      run: dotnet test --no-build --verbosity normal
