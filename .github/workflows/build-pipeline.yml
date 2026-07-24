@@ -20,6 +20,6 @@ jobs:
       with:
         dotnet-version: 10.0.x
     - name: Build
-      run: dotnet build ./myRecipeBook.csproj
+      run: dotnet build ./src/myRecipeBook.csproj
     - name: Test
-      run: dotnet test ./myRecipeBook.csproj
+      run: dotnet test ./src/myRecipeBook.csproj
