@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = none
+
+# Default severity for analyzer diagnostics with category 'Usage'
+dotnet_analyzer_diagnostic.category-Usage.severity = silent
+
+# xUnit1012: Null should only be used for nullable parameters
+dotnet_diagnostic.xUnit1012.severity = warning

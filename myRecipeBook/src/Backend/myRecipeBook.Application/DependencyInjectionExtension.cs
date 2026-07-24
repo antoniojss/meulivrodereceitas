@@ -10,7 +10,7 @@ namespace myRecipeBook.Application
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IRegisteruserAccountUseCase, RegisteruserAccountUseCase>();
+            services.AddScoped<IRegisterUserAccountUseCase, RegisterUserAccountUseCase>();
         }
     }
 }

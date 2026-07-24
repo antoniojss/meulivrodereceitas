@@ -5,7 +5,6 @@ C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.E
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.AssemblyInfoInputs.cache
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.AssemblyInfo.cs
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.csproj.CoreCompileInputs.cache
-C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.sourcelink.json
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.dll
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\refint\myRecipeBook.Exception.dll
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.pdb

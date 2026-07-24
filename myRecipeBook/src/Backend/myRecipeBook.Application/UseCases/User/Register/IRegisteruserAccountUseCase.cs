@@ -6,7 +6,7 @@ using System.Text;
 
 namespace myRecipeBook.Application.UseCases.User.Register
 {
-    public interface IRegisteruserAccountUseCase
+    public interface IRegisterUserAccountUseCase
     {
         Task <ResponseRegistredUserJson> Execute(RequestRegisterUserAccountJson request);
     }

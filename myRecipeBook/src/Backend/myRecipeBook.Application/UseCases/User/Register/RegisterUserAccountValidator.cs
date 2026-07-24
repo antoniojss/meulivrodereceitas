@@ -13,14 +13,11 @@ namespace myRecipeBook.Application.UseCases.User.Register
         public RegisterUserAccountValidator()
         {
             RuleFor(user => user.Name)
-                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_NAME_REQUIRED.ToString())
-                .MaximumLength(100).WithMessage(ResourceMessagesException.VALIDATION_NAME_EXCEED_QTY_CHARACTERS.ToString());
+                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_NAME_REQUIRED.ToString());
             RuleFor(user => user.Email)
-                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_EMAIL_REQUERID.ToString())
-                .EmailAddress().WithMessage(ResourceMessagesException.INVALID_EMAIL_FORMAT.ToString());
+                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_EMAIL_REQUERID.ToString());
             RuleFor(user => user.Password)
-                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_PASSWORD_REQUERID)
-                .MinimumLength(6).WithMessage(ResourceMessagesException.VALIDATION_PASSWORD_MUST_QTY_CHARACTERS.ToString());
+                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_PASSWORD_REQUERID.ToString());
             When(user => user.Email.IsNotEmpty(), () =>
             {
                 RuleFor(user => user.Email).EmailAddress().WithMessage(ResourceMessagesException.INVALID_EMAIL_FORMAT.ToString());
