@@ -9,7 +9,7 @@ namespace myRecipeBook.Infrastructure.Migrations.Versions
     {
         public override void Up()
         {
-            Create.Table("User")
+            Create.Table("Users")
                 .WithColumn("Id").AsGuid().PrimaryKey().NotNullable()
                 .WithColumn("Name").AsString(250).NotNullable()
                 .WithColumn("Email").AsString(250).NotNullable()

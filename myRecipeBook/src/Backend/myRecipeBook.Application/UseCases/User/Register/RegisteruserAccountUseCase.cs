@@ -10,14 +10,14 @@ using myRecipeBook.Exception.ExceptionBase;
 
 namespace myRecipeBook.Application.UseCases.User.Register
 {
-    public class RegisteruserAccountUseCase : IRegisteruserAccountUseCase
+    public class RegisterUserAccountUseCase : IRegisterUserAccountUseCase
     {
         private readonly IPasswordHasher _passwordHasher;
         private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
         private readonly IUserReadOnlyRepository _userReadOnlyRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public RegisteruserAccountUseCase(
+        public RegisterUserAccountUseCase(
             IPasswordHasher passwordHasher,
             IUserWriteOnlyRepository userWriteOnlyRepository,
             IUserReadOnlyRepository userReadOnlyRepository,

@@ -14,8 +14,6 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
         }
 
 
-        //=> vai tocar { await _dbContext.Users.AddAsync(user); }
-
         public async Task Add(User user) => await _dbContext.Users.AddAsync(user);
 
         public async Task<bool> ExistActiveUserWithEmail(string email)
