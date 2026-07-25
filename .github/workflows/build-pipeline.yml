@@ -1,15 +1,22 @@
-name: .NET Core CI
+name: .NET Core CI (Develop)
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ develop ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ develop ]
+  workflow_dispatch: # <--- ADICIONE ESTA LINHA AQUI (Permite rodar manualmente pelo site)
 
+permissions:
+  pull-requests: write
+  contents: write
+# CONFIGURAÇÃO DE DIRETÓRIO GLOBAL
+defaults:
+  run:
+    working-directory: ./myRecipeBook
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
     # 1. Baixa o código do repositório
     - uses: actions/checkout@v4
