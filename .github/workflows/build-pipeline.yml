@@ -1,11 +1,19 @@
-name: .NET Core CI
+name: .NET Core CI (Develop)
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ develop ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ develop ]
+  workflow_dispatch: # <--- ADICIONE ESTA LINHA AQUI (Permite rodar manualmente pelo site)
 
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
 jobs:
   build:
     runs-on: ubuntu-latest
