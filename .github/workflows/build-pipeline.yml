@@ -46,7 +46,6 @@ jobs:
     # 6. (Opcional) Publica o relatório XML como um artefato do build para download
     - name: Upload Coverage Artifact
       uses: actions/upload-artifact@v4
-            node --trace-deprecation
       with:
         name: code-coverage-report
         path: '**/TestResults/coverage.cobertura.xml'
