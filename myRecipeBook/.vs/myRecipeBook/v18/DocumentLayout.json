@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{4C940B9E-D238-4427-AC9D-2F35983189FA}|test{4C940B9E-D238-4427-AC9D-2F35983189FA}|C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\coverlet.runsettings||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{4C940B9E-D238-4427-AC9D-2F35983189FA}|test{4C940B9E-D238-4427-AC9D-2F35983189FA}|solutionrelative:test\\coverlet.runsettings||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,19 +34,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "coverlet.runsettings",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\coverlet.runsettings",
-              "RelativeDocumentMoniker": "test\\coverlet.runsettings",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\coverlet.runsettings",
-              "RelativeToolTip": "test\\coverlet.runsettings",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-07-25T20:13:54.487Z",
-              "EditorCaption": ""
             }
           ]
         }
