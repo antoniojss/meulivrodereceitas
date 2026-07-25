@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D729500-135
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4C940B9E-D238-4427-AC9D-2F35983189FA}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Users\anton\Downloads\coverlet.runsettings = ..\..\..\..\Users\anton\Downloads\coverlet.runsettings
+		test\coverlet.runsettings = test\coverlet.runsettings
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myRecipeBook.API", "src\Backend\myRecipeBook.API\myRecipeBook.API.csproj", "{7A7FAC3B-14FE-471B-A31B-DBD2CBB2D67D}"
