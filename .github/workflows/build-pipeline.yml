@@ -13,8 +13,7 @@ permissions:
 # CONFIGURAÇÃO DE DIRETÓRIO GLOBAL
 defaults:
   run:
-    working-directory: '/home/runner/work/meulivrodereceitas/myRecipeBook/myRecipeBook.sln' # <-- Substitua pelo nome da pasta onde fica sua Solution (.sln) ou Projeto (.csproj)
-
+    working-directory: ./myRecipeBook
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
