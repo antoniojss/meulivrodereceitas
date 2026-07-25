@@ -136,3 +136,4 @@ C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.Infrastructure\bin\Debug\net10.0\TestConn.dll
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.Infrastructure\bin\Debug\net10.0\TestConn.exe
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.Infrastructure\bin\Debug\net10.0\TestConn.runtimeconfig.json
+C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.Infrastructure\obj\Debug\net10.0\myRecipeBook.Infrastructure.sourcelink.json

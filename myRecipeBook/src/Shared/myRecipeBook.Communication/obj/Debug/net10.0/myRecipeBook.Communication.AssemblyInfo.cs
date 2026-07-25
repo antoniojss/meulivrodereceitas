@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("myRecipeBook.Communication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+011cffe931a1baa1f6f0fbbcace3d5499c2714e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d0adc907dc7b36d353a11ab4809850916ed39f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("myRecipeBook.Communication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("myRecipeBook.Communication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

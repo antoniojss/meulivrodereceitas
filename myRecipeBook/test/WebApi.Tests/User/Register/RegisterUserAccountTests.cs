@@ -67,7 +67,7 @@ namespace WebApi.Tests.User.Register
         public async Task Validate_ShouldBeAnErrorResponse_WhenNameIsEmpty(string culture)
         {
             var request = RequestRegisterUserAccountJsonBuilder.Build();
-            request.Name = culture;
+            request.Name = string.Empty;
 
             _httpClient.DefaultRequestHeaders.AcceptLanguage.Clear();
             _httpClient.DefaultRequestHeaders.AcceptLanguage.TryParseAdd(culture);

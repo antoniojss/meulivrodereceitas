@@ -17,3 +17,4 @@ C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.E
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.csproj.GenerateResource.cache
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\es\myRecipeBook.Exception.resources.dll
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\pt-BR\myRecipeBook.Exception.resources.dll
+C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Shared\myRecipeBook.Exception\obj\Debug\net10.0\myRecipeBook.Exception.sourcelink.json
