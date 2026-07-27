@@ -13,9 +13,9 @@ on:
       - develop
 
 # Configura a subpasta padrão para todos os comandos de terminal (run)
-defaults:
-  run:
-    working-directory: ./
+#defaults:
+ # run:
+  #  working-directory: ./
 
 jobs:
   build-and-tests:
