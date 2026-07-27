@@ -27,33 +27,33 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '10.0.x'
- 
+
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build project
       run: dotnet build --configuration Release --no-restore
 
-    # CORREÇÃO 1: Adicionada a barra "/" no final de TestResults/ para forçar a criação como diretório
+    # AJUSTE 1: Alterado o Coverlet para gerar um arquivo único na pasta raiz do working-directory
     - name: Run Tests with Coverlet
       run: |
         dotnet test --configuration Release --no-build \
         /p:CollectCoverage=true \
         /p:CoverletOutputFormat=cobertura \
-        /p:CoverletOutput=./TestResults/
+        /p:CoverletOutput=${{ github.workspace }}/myRecipeBook/TestResults/
 
-    # CORREÇÃO 2: Ampliado o caminho de busca para buscar recursivamente em qualquer TestResults do projeto
+    # AJUSTE 2: Especificamos o caminho exato a partir do diretório de trabalho
     - name: Upload Coverage Artifact
       uses: actions/upload-artifact@v4
       with:
         name: code-coverage-report
-        path: '**/TestResults/coverage.cobertura.xml'
+        path: myRecipeBook/TestResults/coverage.cobertura.xml
 
-    # CORREÇÃO 3: Ajustada a leitura do resumo para usar o mapeamento amplo também
+    # AJUSTE 3: O CodeCoverageSummary precisa do arquivo no caminho exato gerado
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: '**/TestResults/coverage.cobertura.xml'
+        filename: myRecipeBook/TestResults/coverage.cobertura.xml
         badge: true
         fail_below_min: false
         format: markdown
@@ -64,4 +64,4 @@ jobs:
       if: github.event_name == 'pull_request'
       with:
         recreate: true
-        path: code-coverage-results.md
+        path: myRecipeBook/code-coverage-results.md
