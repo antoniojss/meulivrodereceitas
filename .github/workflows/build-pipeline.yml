@@ -11,9 +11,14 @@ permissions:
   pull-requests: write
   contents: write
 
+#defaults:
+#  run:
+#    working-directory: ./meulivrodereceitas
+
+#copilot to do this way 
 defaults:
   run:
-    working-directory: ./meulivrodereceitas
+    shell: bash
 
 jobs:
   build-and-test:
