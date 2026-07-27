@@ -5,10 +5,17 @@ on:
   workflow_dispatch:
   
   push:
-    branches: [ develop ]
-    
+    branches:
+      - develop
+      
   pull_request:
-    branches: [ develop ]
+    branches:
+      - develop
+
+# Configura a subpasta padrão para todos os comandos de terminal (run)
+defaults:
+  run:
+    working-directory: ./meulivrodereceitas
 
 jobs:
   build-and-tests:
@@ -16,20 +23,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Passo obrigatório no GitHub Actions para baixar o código do repositório
-    - name: Checkout code
-      uses: actions/checkout@v4
+      # Passo obrigatório no GitHub Actions para baixar o código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # Instalação do SDK do .NET 10
-    - name: Installing .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.x'
+      # Instalação do SDK do .NET 10
+      - name: Installing .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
 
-    # Execução do Build
-    - name: Build
-      run: dotnet build
+      # Execução do Build (rodará automaticamente dentro de ./meulivrodereceitas)
+      - name: Build
+        run: dotnet build
 
-    # Execução dos Testes
-    - name: Tests
-      run: dotnet test
+      # Execução dos Testes (rodará automaticamente dentro de ./meulivrodereceitas)
+      - name: Tests
+        run: dotnet test
