@@ -7,9 +7,9 @@ on:
     branches: [ develop ]
   workflow_dispatch:
 
-permissions:
-  pull-requests: write
-  contents: write
+#permissions:
+#  pull-requests: write
+#  contents: write
 
 defaults:
   run:
@@ -28,8 +28,8 @@ jobs:
       with:
         dotnet-version: '10.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
+#    - name: Restore dependencies
+#      run: dotnet restore
 
     - name: Build project
       run: dotnet build --configuration Release --no-restore
