@@ -48,9 +48,9 @@ jobs:
     # 2. Comando Linux para pescar o arquivo gerado em subpastas dinâmicas e mover para a raiz do repositório
     - name: Extract and Move Coverage File
       run: |
-        find ./TestResults -name "coverage.cobertura.xml" -exec cp {} ${{ github.workspace }}/coverage.cobertura.xml \;
+        find ./TestResults -name "coverage.cobertura.xml" -exec cp {} ./coverage.cobertura.xml \;
       shell: bash
-
+  
     # 3. Faz o upload do artefato pegando direto da raiz do repositório
     - name: Upload Coverage Artifact
       uses: actions/upload-artifact@v4
