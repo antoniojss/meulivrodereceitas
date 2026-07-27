@@ -3,11 +3,12 @@ name: CI
 # Define o gatilho (trigger) para disparar o pipeline. 
 # Ajuste as branches conforme a necessidade do seu repositório.
 on:
+  workflow_dispatch:
   push:
     branches: [ develop, develop ]
   pull_request:
     branches: [ develop, develop ]
-  workflow_dispatch:
+  
  
  permissions:
   pull-requests: write
