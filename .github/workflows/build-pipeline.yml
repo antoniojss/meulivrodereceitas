@@ -13,7 +13,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: ./myRecipeBook
+    working-directory: ./meulivrodereceitas
 
 jobs:
   build-and-test:
@@ -34,22 +34,25 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release --no-restore
 
-    # AJUSTE 1: Salvamos o relatório diretamente na raiz do repositório usando uma pasta temporária previsível
-    - name: Run Tests with Coverlet
+    # 1. Executa os testes usando o coletor cross-platform padrão do .NET (Gera em TestResults/)
+    - name: Run Tests
       run: |
-        dotnet test --configuration Release --no-build \
-        /p:CollectCoverage=true \
-        /p:CoverletOutputFormat=cobertura \
-        /p:CoverletOutput=../coverage.cobertura.xml
+        dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
 
-    # AJUSTE 2: Como subimos um nível no comando anterior (../), o arquivo está na raiz do repositório
+    # 2. Comando Linux para pescar o arquivo gerado em subpastas dinâmicas e mover para a raiz do repositório
+    - name: Extract and Move Coverage File
+      run: |
+        find ./TestResults -name "coverage.cobertura.xml" -exec cp {} ${{ github.workspace }}/coverage.cobertura.xml \;
+      shell: bash
+
+    # 3. Faz o upload do artefato pegando direto da raiz do repositório
     - name: Upload Coverage Artifact
       uses: actions/upload-artifact@v4
       with:
         name: code-coverage-report
         path: coverage.cobertura.xml
 
-    # AJUSTE 3: Como a Action roda no Docker a partir da raiz, ela agora achará o arquivo "coverage.cobertura.xml" diretamente
+    # 4. Agora a Action Docker encontrará o arquivo "coverage.cobertura.xml" exatamente onde ela busca por padrão
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
@@ -59,10 +62,10 @@ jobs:
         format: markdown
         output: both
 
-    # AJUSTE 4: Ajustado para pegar o markdown gerado na raiz
+    # 5. Adiciona o comentário no PR coletando o arquivo markdown gerado na raiz
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
       if: github.event_name == 'pull_request'
       with:
         recreate: true
-        path: ../code-coverage-results.md
+        path: ${{ github.workspace }}/code-coverage-results.md
