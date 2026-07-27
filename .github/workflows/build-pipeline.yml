@@ -1,33 +1,35 @@
 name: CI
 
-# Define o gatilho (trigger) para disparar o pipeline. 
-# Ajuste as branches conforme a necessidade do seu repositório.
+# Gatilhos de disparo para a branch develop e manual
 on:
   workflow_dispatch:
+  
   push:
-    branches: [ develop, develop ]
+    branches: [ develop ]
+    
   pull_request:
-    branches: [ develop, develop ]
+    branches: [ develop ]
 
 jobs:
   build-and-tests:
     name: Build and Tests
     runs-on: ubuntu-latest
 
-  steps:
+    steps:
     # Passo obrigatório no GitHub Actions para baixar o código do repositório
-   - name: Checkout code
-     uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-   # Instalação do SDK do .NET 10
-   - name: Installing .NET SDK
-     uses: actions/setup-dotnet@v4
-     with:
-       dotnet-version: '10.x'
+    # Instalação do SDK do .NET 10
+    - name: Installing .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.x'
 
     # Execução do Build
-   - name: Build
-     run: dotnet build
+    - name: Build
+      run: dotnet build
+
     # Execução dos Testes
     - name: Tests
       run: dotnet test
