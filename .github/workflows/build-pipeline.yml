@@ -15,7 +15,7 @@ on:
 # Configura a subpasta padrão para todos os comandos de terminal (run)
 defaults:
   run:
-    working-directory: ./meulivrodereceitas
+    working-directory: ../meulivrodereceitas
 
 jobs:
   build-and-tests:
