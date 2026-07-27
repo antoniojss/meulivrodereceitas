@@ -68,4 +68,4 @@ jobs:
       if: github.event_name == 'pull_request'
       with:
         recreate: true
-        path: ./meulivrodereceitas/code-coverage-results.md
+        path: '/home/runner/work/meulivrodereceitas/meulivrodereceitas/meulivrodereceitas/code-coverage-results.md
