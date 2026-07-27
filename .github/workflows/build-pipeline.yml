@@ -11,15 +11,9 @@ permissions:
   pull-requests: write
   contents: write
 
-#defaults:
-#  run:
-#    working-directory: ./meulivrodereceitas
-
-#copilot to do this way 
 defaults:
   run:
-    working-directory: ./meulivrodereceitas  # ← Adjust path if needed
-    shell: bash
+    working-directory: ./meulivrodereceitas 
 
 jobs:
   build-and-test:
@@ -43,12 +37,12 @@ jobs:
     # 1. Executa os testes usando o coletor cross-platform padrão do .NET (Gera em TestResults/)
     - name: Run Tests
       run: |
-        dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
+        dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./meulivrodereceitas/TestResults
 
     # 2. Comando Linux para pescar o arquivo gerado em subpastas dinâmicas e mover para a raiz do repositório
     - name: Extract and Move Coverage File
       run: |
-        find ./TestResults -name "coverage.cobertura.xml" -exec cp {} ./coverage.cobertura.xml \;
+        find ./meulivrodereceitas/TestResults -name "coverage.cobertura.xml" -exec cp {} ./coverage.cobertura.xml \;
       shell: bash
   
     # 3. Faz o upload do artefato pegando direto da raiz do repositório
