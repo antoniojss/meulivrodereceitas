@@ -61,11 +61,4 @@ jobs:
         fail_below_min: false
         format: markdown
         output: both
-
-    # 5. Adiciona o comentário no PR coletando o arquivo markdown gerado na raiz
-    - name: Add Coverage PR Comment
-      uses: marocchino/sticky-pull-request-comment@v2
-      if: github.event_name == 'pull_request'
-      with:
-        recreate: true
-        path: '/home/runner/work/meulivrodereceitas/meulivrodereceitas/meulivrodereceitas/code-coverage-results.md'
+  
