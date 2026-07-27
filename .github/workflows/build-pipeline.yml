@@ -18,6 +18,7 @@ permissions:
 #copilot to do this way 
 defaults:
   run:
+    working-directory: ./meulivrodereceitas  # ← Adjust path if needed
     shell: bash
 
 jobs:
