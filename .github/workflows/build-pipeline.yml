@@ -8,32 +8,26 @@ on:
     branches: [ develop, develop ]
   pull_request:
     branches: [ develop, develop ]
-  
- 
- permissions:
-  pull-requests: write
-  contents: write
 
 jobs:
   build-and-tests:
     name: Build and Tests
     runs-on: ubuntu-latest
 
-    steps:
+  steps:
     # Passo obrigatório no GitHub Actions para baixar o código do repositório
-    - name: Checkout code
-      uses: actions/checkout@v4
+   - name: Checkout code
+     uses: actions/checkout@v4
 
-    # Instalação do SDK do .NET 10
-    - name: Installing .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.x'
+   # Instalação do SDK do .NET 10
+   - name: Installing .NET SDK
+     uses: actions/setup-dotnet@v4
+     with:
+       dotnet-version: '10.x'
 
     # Execução do Build
-    - name: Build
-      run: dotnet build
-
+   - name: Build
+     run: dotnet build
     # Execução dos Testes
     - name: Tests
       run: dotnet test
