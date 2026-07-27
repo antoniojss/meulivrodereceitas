@@ -41,7 +41,7 @@ jobs:
 
       # Execução do Build
       - name: Build
-        run: dotnet build
+        run: dotnet build --configuration Release --no-restore
 
       # Execução dos Testes com o logger de resultado e os argumentos do Coverlet
       - name: Tests
