@@ -13,9 +13,9 @@ on:
       - develop
 
 # Configura a subpasta padrão para todos os comandos de terminal (run)
-#defaults:
-#  run:
-#    working-directory: ./meulivrodereceitas
+defaults:
+  run:
+    working-directory: ./meulivrodereceitas/
 
 jobs:
   build-and-tests:
