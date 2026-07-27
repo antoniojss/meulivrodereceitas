@@ -12,16 +12,16 @@ on:
     branches:
       - develop
 
-# Configura a subpasta padrão para todos os comandos de terminal (run)
-#defaults:
- # run:
-  #  working-directory: ./
 
 jobs:
   build-and-tests:
     name: Build and Tests
     runs-on: ubuntu-latest
-    
+    # Configura a subpasta padrão para todos os comandos de terminal (run)
+    defaults:
+      run:
+        working-directory: ./
+
     # Permissão necessária para que as ferramentas publiquem os relatórios de cobertura
     permissions:
       pull-requests: write
