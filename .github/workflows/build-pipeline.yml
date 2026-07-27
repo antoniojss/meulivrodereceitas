@@ -20,7 +20,7 @@ jobs:
     # Configura a subpasta padrão para todos os comandos de terminal (run)
     defaults:
       run:
-        working-directory: ./
+        working-directory: ./meulivrodereceitas
 
     # Permissão necessária para que as ferramentas publiquem os relatórios de cobertura
     permissions:
