@@ -52,8 +52,8 @@ jobs:
         run: dotnet build 
 
       # Execução dos Testes com o logger de resultado e os argumentos do Coverlet
-      - name: Tests
-        run: dotnet test --settings tests/coverlet.runsettings --logger trx --results-directory TestResults
+      - name: Test
+        run: dotnet test --settings test/coverlet.runsettings --logger trx --results-directory TestResults
 
       # Publicação dos Resultados de Testes (Equivalente ao publichTestResults: true)
       - name: Publish Test Results
