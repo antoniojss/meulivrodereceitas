@@ -50,6 +50,13 @@ jobs:
       # Execução do Build
       - name: Build
         run: dotnet build --configuration Release --no-restore
+  # Passo temporário para descobrir onde estão os arquivos:
+      - name: Listar arquivos (Debug)
+        run: |
+          echo "=== Diretório Atual ==="
+          pwd
+          echo "=== Conteúdo da Raiz ==="
+          ls -R
 
       # Execução dos Testes com o logger de resultado e os argumentos do Coverlet
       - name: Tests
