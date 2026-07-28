@@ -20,5 +20,15 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
         {
             return await _dbContext.Users.AnyAsync(user => user.Active && user.Email.Equals(email));
         }
+
+        public async Task<User?> GetByEmail(string email)
+        {  
+            //pega somente os 2 registros que ele faca match com a condição 
+            //asnotracking ele rastreia objeto para ver se não mudou nada
+            //copia o objeto e verifica entre as duas 
+            return await _dbContext.Users
+                .AsNoTracking() 
+                .SingleOrDefaultAsync(user => user.Active && user.Email.Equals(email));
+        }
     }
 }
