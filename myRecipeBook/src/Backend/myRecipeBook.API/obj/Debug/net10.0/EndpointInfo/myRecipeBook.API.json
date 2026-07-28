@@ -5,6 +5,74 @@
     "version": "1.0"
   },
   "paths": {
+    "/authentication": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestLoginJson"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestLoginJson"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestLoginJson"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRegistredUserJson"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRegistredUserJson"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRegistredUserJson"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseErrorJson"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseErrorJson"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseErrorJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "tags": [
@@ -76,6 +144,20 @@
   },
   "components": {
     "schemas": {
+      "RequestLoginJson": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RequestRegisterUserAccountJson": {
         "type": "object",
         "properties": {
@@ -138,6 +220,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Authentication"
+    },
     {
       "name": "Users"
     }

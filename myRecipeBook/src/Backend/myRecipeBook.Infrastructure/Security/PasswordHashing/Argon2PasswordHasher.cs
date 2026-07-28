@@ -25,14 +25,14 @@ namespace myRecipeBook.Infrastructure.Security.PasswordHashing
         {
             var salt = RandomNumberGenerator.GetBytes(SALT_SIZE); // Gera um salt aleatório 
 
-            var hash = HasPassword(password, salt); // Gera o hash da senha usando o salt gerado
+            var hash = HashPassword(password, salt); // Gera o hash da senha usando o salt gerado
 
             var combinedBytes = new byte[salt.Length + hash.Length]; // Cria um array para armazenar o salt e o
                                                                      // hash juntos
 
             salt.CopyTo(combinedBytes); // Copia o salt para o array combinado
 
-            salt.CopyTo(combinedBytes, index: salt.Length); // Copia o hash para o array combinado apartir da 16 posição
+            hash.CopyTo(combinedBytes, index: salt.Length); // Copia o hash para o array combinado apartir da 16 posição
 
             return Convert.ToBase64String(combinedBytes); // Retorna o hash da senha em formato Base64
         }
@@ -42,16 +42,14 @@ namespace myRecipeBook.Infrastructure.Security.PasswordHashing
                                                                         // para bytes    
 
             var salt = new byte[SALT_SIZE]; // Cria um array para armazenar o salt
-
             var hash = new byte[HASH_SIZE]; // Cria um array para armazenar o hash
 
-            Array.Copy(combinedBytes, 0, salt, 0, SALT_SIZE); // Copia o salt do array combinado para o array de salt
+            Array.Copy(combinedBytes, salt, SALT_SIZE); // Copia o salt do array combinado para o array de salt
                                                               // da posição 0 ate a 15 
-
             Array.Copy(combinedBytes, SALT_SIZE, hash, 0, HASH_SIZE); // Copia o hash do array combinado para o array
                                                                       // de hash aqui vai pegar da 16 ate a 32 
 
-            var newHash = HasPassword(password, salt); // Gera um novo hash da senha fornecida pelo usuário
+            var newHash = HashPassword(password, salt); // Gera um novo hash da senha fornecida pelo usuário
                                                        // usando o salt extraído do hash armazenado
 
             return CryptographicOperations.FixedTimeEquals(newHash, hash); // Compara o novo hash com o hash
@@ -59,7 +57,7 @@ namespace myRecipeBook.Infrastructure.Security.PasswordHashing
                                                                            // e retorna true se forem iguais,
                                                                            // caso contrario false
         }
-        private byte[] HasPassword(string password, byte[] salt)
+        private byte[] HashPassword(string password, byte[] salt)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
 

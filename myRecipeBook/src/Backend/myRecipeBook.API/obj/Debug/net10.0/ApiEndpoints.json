@@ -1,5 +1,40 @@
 [
   {
+    "ContainingType": "myRecipeBook.API.Controllers.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "authentication",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "myRecipeBook.Communication.Requests.RequestLoginJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseRegistredUserJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseErrorJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      }
+    ]
+  },
+  {
     "ContainingType": "myRecipeBook.API.Controllers.UsersController",
     "Method": "Register",
     "RelativePath": "users",
