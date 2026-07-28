@@ -11,16 +11,12 @@ on:
   pull_request:
     branches:
       - develop
-
+   
 
 jobs:
   build-and-tests:
     name: Build and Tests
     runs-on: ubuntu-latest
-    # Configura a subpasta padrão para todos os comandos de terminal (run)
-    defaults:
-      run:
-        working-directory: ./meulivrodereceitas
 
     # Permissão necessária para que as ferramentas publiquem os relatórios de cobertura
     permissions:
@@ -50,13 +46,6 @@ jobs:
       # Execução do Build
       - name: Build
         run: dotnet build --configuration Release --no-restore
-  # Passo temporário para descobrir onde estão os arquivos:
-      - name: Listar arquivos (Debug)
-        run: |
-          echo "=== Diretório Atual ==="
-          pwd
-          echo "=== Conteúdo da Raiz ==="
-          ls -R
 
       # Execução dos Testes com o logger de resultado e os argumentos do Coverlet
       - name: Tests
