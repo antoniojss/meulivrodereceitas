@@ -33,6 +33,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Passo temporário para descobrir onde estão os arquivos:
+      - name: Listar arquivos (Debug)
+        run: |
+          echo "=== Diretório Atual ==="
+          pwd
+          echo "=== Conteúdo da Raiz ==="
+          ls -R
+
       # Instalação do SDK do .NET 10
       - name: Installing .NET SDK
         uses: actions/setup-dotnet@v4
