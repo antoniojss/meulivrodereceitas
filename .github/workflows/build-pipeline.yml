@@ -16,9 +16,7 @@ defaults:
   run:
     working-directory: ./myRecipeBook 
 
-permissions:
-  pull-requests: write
-  contents: write
+
 
 jobs:
   build-and-tests:
@@ -28,7 +26,8 @@ jobs:
     # Permissão necessária para que as ferramentas publiquem os relatórios de cobertura
     permissions:
       pull-requests: write
-      contents: write
+      contents: read
+      checks: write
       code-quality: write
 
     steps:
