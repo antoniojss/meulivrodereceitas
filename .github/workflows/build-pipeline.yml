@@ -14,7 +14,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./meulivrodereceitas 
+    working-directory: ./myRecipeBook 
    
 
 jobs:
