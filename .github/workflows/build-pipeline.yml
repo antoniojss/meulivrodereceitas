@@ -52,23 +52,23 @@ jobs:
         with:
           files: '**/TestResults/*.trx'
 
-      # 1. NOVO: Gerar Relatório Gráfico em Markdown (Substituindo a action anterior)
+      # 1. Gerar Relatório Gráfico (Ajustado para o formato Markdown do GitHub)
       - name: Generate Code Coverage Report
         uses: danielpalme/ReportGenerator-GitHub-Action@5.4.3
         if: always()
         with:
           reports: '**/TestResults/**/coverage.cobertura.xml'
-          targetdir: 'coveragereport'
-          reporttypes: 'MarkdownSummary;HtmlSummary' # Gera um sumário visual em markdown e uma página web completa
+          targetdir: '${{ github.workspace }}/coveragereport' # Força salvar em um caminho absoluto controlado
+          reporttypes: 'MarkdownSummaryGithub;HtmlSummary'   # Tipo correto de relatório para o ecossistema do GitHub
 
-      # 2. NOVO: Publicar o gráfico/tabela gerada diretamente no Sumário do Job do GitHub
+      # 2. Publicar o gráfico/tabela gerada diretamente no Sumário do Job do GitHub (Caminho absoluto corrigido)
       - name: Publish Coverage to Job Summary
-        run: cat coveragereport/Summary.md >> $GITHUB_STEP_SUMMARY
+        run: cat ${{ github.workspace }}/coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
         if: always()
 
-      # 3. OPCIONAL: Se você quiser que o gráfico apareça também como comentário no Pull Request
+      # 3. Se você quiser que o gráfico apareça também como comentário no Pull Request (Caminho absoluto corrigido)
       - name: Write PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: always() && github.event_name == 'pull_request'
         with:
-          path: myRecipeBook/coveragereport/Summary.md
+          path: ${{ github.workspace }}/coveragereport/SummaryGithub.md
