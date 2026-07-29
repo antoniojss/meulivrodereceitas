@@ -1,0 +1,93 @@
+﻿using CommonTestUtilities.Entities;
+using CommonTestUtilities.Repositories;
+using CommonTestUtilities.Requests;
+using CommonTestUtilities.Security;
+using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
+using myRecipeBook.Application.UseCases.User.Register;
+using myRecipeBook.Domain.Extensions;
+using myRecipeBook.Exception;
+using myRecipeBook.Exception.ExceptionBase;
+using Shouldly;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace UseCases.Tests.Login
+{
+    public class LoginWithEmailAndPasswordUseCaseTests
+    {
+        [Fact]
+        public async Task Success()
+        {
+            // Arrange
+            var user = UserBuilder.Build(); 
+            var request = RequestLoginJsonBuilder.Build();
+            request.Email = user.Email;
+
+            var useCase = CreateUseCase(request.Password, user);
+
+            var result = await useCase.Execute(request);
+
+            result.ShouldNotBeNull();
+            result.Tokens.ShouldNotBeNull();
+            result.Name.ShouldBe(user.Name);
+            result.Tokens.AccessToken.ShouldBeNullOrEmpty();
+            result.Tokens.RefreshToken.ShouldBeNullOrEmpty();
+
+        }
+
+        [Fact]
+        public async Task Validate_ShouldThrowException_WhenUserDontExist()
+        {
+            var request = RequestLoginJsonBuilder.Build();
+
+            var useCase = CreateUseCase();
+
+            var exception = await useCase.Execute(request).ShouldThrowAsync<InvalidLoginException>();
+            
+            exception = await useCase.Execute(request).ShouldThrowAsync<InvalidLoginException>();
+            exception.GetErrorMessages().ShouldSatisfyAllConditions(errorMessages =>
+            {
+                errorMessages.Count.ShouldBe(1);
+                errorMessages.ShouldContain(ResourceMessagesException.VALIDATION_LOGIN_INVALID);
+            });
+
+        }
+        [Fact]
+        public async Task Validate_ShouldThrowException_WhenPasswordIsIncorrect()
+        {
+            var user = UserBuilder.Build();
+            
+            var request = RequestLoginJsonBuilder.Build();
+
+            request.Email = user.Email;
+
+            var useCase = CreateUseCase(user: user);
+
+            var exception = await useCase.Execute(request).ShouldThrowAsync<InvalidLoginException>();
+
+            exception = await useCase.Execute(request).ShouldThrowAsync<InvalidLoginException>();
+            exception.GetErrorMessages().ShouldSatisfyAllConditions(errorMessages =>
+            {
+                errorMessages.Count.ShouldBe(1);
+                errorMessages.ShouldContain(ResourceMessagesException.VALIDATION_LOGIN_INVALID);
+            });
+        }
+
+        private LoginWithEmailAndPasswordUseCase CreateUseCase(
+            string? password = null, myRecipeBook.Domain.Entities.User?  user=null)
+        {
+            var passwordHaserBilder = new IPasswordHasherBuilder();
+
+            var userReadOnlyRepositoryBuilder = new IUserReadOnlyRepositoryBuilder();
+
+            if (user is not null)
+                userReadOnlyRepositoryBuilder.GetByEmail(user);
+
+            if (password.IsNotEmpty())
+                passwordHaserBilder.VerifyPassword(password);
+
+            return new LoginWithEmailAndPasswordUseCase(passwordHaserBilder.Build(), userReadOnlyRepositoryBuilder.Build());
+        }
+    }
+}
