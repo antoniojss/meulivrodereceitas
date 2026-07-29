@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\usecases.tests\\login\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|solutionrelative:test\\usecases.tests\\login\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\usecases.tests\\user\\register\\registeruseraccountusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|solutionrelative:test\\usecases.tests\\user\\register\\registeruseraccountusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\commontestutilities\\entities\\userbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|solutionrelative:test\\commontestutilities\\entities\\userbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\commontestutilities\\security\\ipasswordhasherbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|solutionrelative:test\\commontestutilities\\security\\ipasswordhasherbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\commontestutilities\\repositories\\iuserreadonlyrepositorybuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|solutionrelative:test\\commontestutilities\\repositories\\iuserreadonlyrepositorybuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\commontestutilities\\requests\\requestregisteruseraccountjsonbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|solutionrelative:test\\commontestutilities\\requests\\requestregisteruseraccountjsonbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\usecases.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDB8549-7107-458D-807E-A667416EB5DC}|test\\UseCases.Tests\\UseCases.Tests.csproj|solutionrelative:test\\usecases.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,80 +38,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserBuilder.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "RelativeDocumentMoniker": "test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "RelativeToolTip": "test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:48:14.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LoginWithEmailAndPasswordUseCaseTests.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\Login\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "RelativeDocumentMoniker": "test\\UseCases.Tests\\Login\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\Login\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "RelativeToolTip": "test\\UseCases.Tests\\Login\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAIAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
+              "RelativeDocumentMoniker": "test\\UseCases.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
+              "RelativeToolTip": "test\\UseCases.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:21:55.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegisteruserAccountUseCaseTests.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\User\\Register\\RegisteruserAccountUseCaseTests.cs",
-              "RelativeDocumentMoniker": "test\\UseCases.Tests\\User\\Register\\RegisteruserAccountUseCaseTests.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\UseCases.Tests\\User\\Register\\RegisteruserAccountUseCaseTests.cs",
-              "RelativeToolTip": "test\\UseCases.Tests\\User\\Register\\RegisteruserAccountUseCaseTests.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAmwE0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:19:47.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IPasswordHasherBuilder.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Security\\IPasswordHasherBuilder.cs",
-              "RelativeDocumentMoniker": "test\\CommonTestUtilities\\Security\\IPasswordHasherBuilder.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Security\\IPasswordHasherBuilder.cs",
-              "RelativeToolTip": "test\\CommonTestUtilities\\Security\\IPasswordHasherBuilder.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:16:26.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUserReadOnlyRepositoryBuilder.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Repositories\\IUserReadOnlyRepositoryBuilder.cs",
-              "RelativeDocumentMoniker": "test\\CommonTestUtilities\\Repositories\\IUserReadOnlyRepositoryBuilder.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Repositories\\IUserReadOnlyRepositoryBuilder.cs",
-              "RelativeToolTip": "test\\CommonTestUtilities\\Repositories\\IUserReadOnlyRepositoryBuilder.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:13:44.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RequestRegisterUserAccountJsonBuilder.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Requests\\RequestRegisterUserAccountJsonBuilder.cs",
-              "RelativeDocumentMoniker": "test\\CommonTestUtilities\\Requests\\RequestRegisterUserAccountJsonBuilder.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Requests\\RequestRegisterUserAccountJsonBuilder.cs",
-              "RelativeToolTip": "test\\CommonTestUtilities\\Requests\\RequestRegisterUserAccountJsonBuilder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T17:11:48.856Z",
+              "WhenOpened": "2026-07-29T18:59:13.452Z",
               "EditorCaption": ""
             }
           ]

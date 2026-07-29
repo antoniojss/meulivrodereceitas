@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace UseCases.Tests.Login
+namespace UseCases.Tests.Login.WithEmailAndPassword
 {
     public class LoginWithEmailAndPasswordUseCaseTests
     {
