@@ -129,6 +129,9 @@
   <data name="VALIDATION_EMAIL_REQUERID" xml:space="preserve">
     <value>Email is required. Please check!</value>
   </data>
+  <data name="VALIDATION_LOGIN_INVALID" xml:space="preserve">
+    <value>Invalid Login or Password, please verify  </value>
+  </data>
   <data name="VALIDATION_NAME_EXCEED_QTY_CHARACTERS" xml:space="preserve">
     <value>Name must not exceed 100 characters.</value>
   </data>

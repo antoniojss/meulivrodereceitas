@@ -129,6 +129,9 @@
   <data name="VALIDATION_EMAIL_REQUERID" xml:space="preserve">
     <value>Se requiere correo electrónico. ¡Por favor, revíselo!</value>
   </data>
+  <data name="VALIDATION_LOGIN_INVALID" xml:space="preserve">
+    <value>Nombre de usuario o contraseña no válidos. ¡Por favor, verifíquelos!</value>
+  </data>
   <data name="VALIDATION_NAME_EXCEED_QTY_CHARACTERS" xml:space="preserve">
     <value>El nombre no puede tener más de 100 caracteres. ¡Por favor, compruébelo!</value>
   </data>

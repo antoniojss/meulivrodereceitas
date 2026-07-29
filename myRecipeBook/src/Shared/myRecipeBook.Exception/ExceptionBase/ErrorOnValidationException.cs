@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace myRecipeBook.Exception.ExceptionBase
@@ -23,7 +24,9 @@ namespace myRecipeBook.Exception.ExceptionBase
         }
         */
 
-        public List<string> GetErrorMessages() => _errors;
+        public override List<string> GetErrorMessages() => _errors;
+
+        public override HttpStatusCode GetStatusCode() => HttpStatusCode.BadRequest;   
     }
 
 }
