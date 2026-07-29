@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using CommonTestUtilities.Entities;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using myRecipeBook.Domain.Security.PasswordHashing;
+using myRecipeBook.Infrastructure.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,12 +41,27 @@ namespace WebApi.Tests
         public async Task InitializeAsync()
         {
             await _mySqlContainer.StartAsync();
+
+            await using var scope = Services.CreateAsyncScope();
+            
+            var dbContext = scope.ServiceProvider.GetRequiredService<MyRecipeBookDbContext>();
+            var passwordHashr = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
+
+            // Arrange
+            var (user, password) = UserBuilder.Build();
+
+            user.Password = passwordHashr.HashPassword(password);
+
+            await dbContext.Users.AddAsync(user);
+            await dbContext.SaveChangesAsync();
         }
 
         Task IAsyncLifetime.DisposeAsync()
         {
             return _mySqlContainer.StopAsync();
         }
+
+
 
     }
 

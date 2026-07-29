@@ -20,7 +20,8 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
         public async Task Success()
         {
             // Arrange
-            var user = UserBuilder.Build(); 
+            var (user, _) = UserBuilder.Build();
+                        
             var request = RequestLoginJsonBuilder.Build();
             request.Email = user.Email;
 
@@ -56,8 +57,9 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
         [Fact]
         public async Task Validate_ShouldThrowException_WhenPasswordIsIncorrect()
         {
-            var user = UserBuilder.Build();
-            
+            // Arrange
+            var (user, _) = UserBuilder.Build();
+
             var request = RequestLoginJsonBuilder.Build();
 
             request.Email = user.Email;
