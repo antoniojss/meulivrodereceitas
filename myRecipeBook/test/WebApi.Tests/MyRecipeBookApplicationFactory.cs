@@ -10,11 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Testcontainers.MySql;
+using WebApi.Tests.Resources;
 
 namespace WebApi.Tests
 {
     public class MyRecipeBookApplicationFactory : WebApplicationFactory<Program>, IAsyncLifetime
     {
+        public UserIdentityManager _User1 { get; private set;  } 
+
         private readonly MySqlContainer _mySqlContainer;
         internal object ServicesProvider;
 
@@ -54,6 +57,8 @@ namespace WebApi.Tests
 
             await dbContext.Users.AddAsync(user);
             await dbContext.SaveChangesAsync();
+
+            _User1 = new UserIdentityManager(user, password);
         }
 
         Task IAsyncLifetime.DisposeAsync()

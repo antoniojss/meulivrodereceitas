@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CommonTestUtilities.Entities
 {
-    public static class UserBuilder
+    public class UserBuilder
     {
         public static (User user, string password) Build()
         {

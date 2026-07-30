@@ -1,5 +1,6 @@
 ﻿using CommonTestUtilities.Requests;
 using Microsoft.Extensions.DependencyInjection;
+using myRecipeBook.Communication.Requests;
 using myRecipeBook.Domain.Extensions;
 using myRecipeBook.Exception;
 using myRecipeBook.Infrastructure.DataAccess;
@@ -12,6 +13,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using WebApi.Tests.InlineData;
+using WebApi.Tests.Resources;
 
 namespace WebApi.Tests.Login.WithEmailAndPassword
 {
@@ -19,6 +21,8 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
         : IClassFixture<MyRecipeBookApplicationFactory>
     {
         private const string REQUEST_URI = "/authentication";
+
+        private readonly UserIdentityManager _User1;
 
         private readonly HttpClient _httpClient;
      
@@ -28,6 +32,7 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
         public LoginWithEmailAndPasswordTests(MyRecipeBookApplicationFactory factory)
         {
             _httpClient = factory.CreateClient();
+            _User1 = factory._User1;
 
             //var scope = factory.Services.CreateScope();
 
@@ -38,17 +43,21 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
         [Fact]
         public async Task Success()
         {
-            var request = RequestRegisterUserAccountJsonBuilder.Build();
+            var request = new RequestLoginJson
+            {
+                Email = _User1.GetEmail(),
+                Password = _User1.GetPassword(),
+            };
 
             var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
 
-            response.StatusCode.ShouldBe(HttpStatusCode.Created);
+            response.StatusCode.ShouldBe(HttpStatusCode.OK);
 
             await using var responseBody = await response.Content.ReadAsStreamAsync();
 
             var responseData = await JsonDocument.ParseAsync(responseBody);
 
-            responseData.RootElement.GetProperty("name").GetString().ShouldBe(request.Name);
+            responseData.RootElement.GetProperty("name").GetString().ShouldBe(_User1.GetName());
             responseData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldBeEmpty();
 
             //var userExists = await _dbContext.Users.AnyAsync(user => user.Active
