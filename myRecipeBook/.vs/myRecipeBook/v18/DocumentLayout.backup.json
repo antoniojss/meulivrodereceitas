@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\resources\\useridentitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\resources\\useridentitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\myrecipebookapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\myrecipebookapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\commontestutilities\\entities\\userbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB4CB48D-C577-4C9D-8F28-6F327905F8C4}|test\\CommonTestUtilities\\CommonTestUtilities.csproj|solutionrelative:test\\commontestutilities\\entities\\userbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\user\\register\\registeruseraccounttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\user\\register\\registeruseraccounttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\baseintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\baseintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,54 +46,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserIdentityManager.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Resources\\UserIdentityManager.cs",
-              "RelativeDocumentMoniker": "test\\WebApi.Tests\\Resources\\UserIdentityManager.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Resources\\UserIdentityManager.cs",
-              "RelativeToolTip": "test\\WebApi.Tests\\Resources\\UserIdentityManager.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T19:24:10.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MyRecipeBookApplicationFactory.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\MyRecipeBookApplicationFactory.cs",
-              "RelativeDocumentMoniker": "test\\WebApi.Tests\\MyRecipeBookApplicationFactory.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\MyRecipeBookApplicationFactory.cs",
-              "RelativeToolTip": "test\\WebApi.Tests\\MyRecipeBookApplicationFactory.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAwwDcAAAAMAAAAAAAAAA==",
+              "Title": "RegisterUserAccountTests.cs",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
+              "RelativeDocumentMoniker": "test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
+              "RelativeToolTip": "test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAmwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T19:15:29.847Z",
+              "WhenOpened": "2026-07-30T20:42:34.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "LoginWithEmailAndPasswordUseCaseTests.cs",
               "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
               "RelativeDocumentMoniker": "test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
               "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
               "RelativeToolTip": "test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwCUAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T19:15:14.684Z",
+              "WhenOpened": "2026-07-30T20:42:30.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserBuilder.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "RelativeDocumentMoniker": "test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "RelativeToolTip": "test\\CommonTestUtilities\\Entities\\UserBuilder.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAABYAAAAAAAAAA==",
+              "Title": "BaseIntegrationTest.cs",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\BaseIntegrationTest.cs",
+              "RelativeDocumentMoniker": "test\\WebApi.Tests\\BaseIntegrationTest.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\BaseIntegrationTest.cs",
+              "RelativeToolTip": "test\\WebApi.Tests\\BaseIntegrationTest.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwA8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T19:06:06.273Z",
+              "WhenOpened": "2026-07-30T20:41:50.429Z",
               "EditorCaption": ""
             }
           ]

@@ -20,21 +20,14 @@ using WebApi.Tests.InlineData;
 
 namespace WebApi.Tests.User.Register
 {
-    public class RegisterUserAccountTests : IClassFixture<MyRecipeBookApplicationFactory>
+    public class RegisterUserAccountTests : BaseIntegrationTest
     {
         private const string REQUEST_URI = "/users";
 
-        private readonly HttpClient _httpClient;
-        private readonly MyRecipeBookDbContext _dbContext;
+        
 
-
-        public RegisterUserAccountTests(MyRecipeBookApplicationFactory factory)
+        public RegisterUserAccountTests(MyRecipeBookApplicationFactory factory) : base(factory)
         {
-            _httpClient = factory.CreateClient();
-
-            var scope  = factory.Services.CreateScope();    
-
-            _dbContext = scope.ServiceProvider.GetRequiredService<MyRecipeBookDbContext>();
         }
 
 
@@ -43,7 +36,7 @@ namespace WebApi.Tests.User.Register
         {
             var request = RequestRegisterUserAccountJsonBuilder.Build();
 
-            var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+            var response = await  Post(REQUEST_URI, request);
 
             response.StatusCode.ShouldBe(HttpStatusCode.Created);
  
@@ -54,7 +47,7 @@ namespace WebApi.Tests.User.Register
             responseData.RootElement.GetProperty("name").GetString().ShouldBe(request.Name);
             responseData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldBeEmpty();
             
-            var userExists = await _dbContext.Users.AnyAsync(user => user.Active
+            var userExists = await DbContext.Users.AnyAsync(user => user.Active
             && user.Name.Equals(request.Name) 
             && user.Email.Equals(request.Email));
 
@@ -68,12 +61,8 @@ namespace WebApi.Tests.User.Register
         {
             var request = RequestRegisterUserAccountJsonBuilder.Build();
             request.Name = string.Empty;
-
-            _httpClient.DefaultRequestHeaders.AcceptLanguage.Clear();
-            _httpClient.DefaultRequestHeaders.AcceptLanguage.TryParseAdd(culture);
-
-
-            var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+            
+            var response = await Post(REQUEST_URI, request, culture);
 
             response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
 
@@ -91,7 +80,7 @@ namespace WebApi.Tests.User.Register
                 error.GetString()!.Equals(expectedErrorMessage));
             });
 
-            var userExists = await _dbContext.Users.AnyAsync(user => user.Active 
+            var userExists = await DbContext.Users.AnyAsync(user => user.Active 
             && user.Name.Equals(request.Name) 
             && user.Email.Equals(request.Email));
 

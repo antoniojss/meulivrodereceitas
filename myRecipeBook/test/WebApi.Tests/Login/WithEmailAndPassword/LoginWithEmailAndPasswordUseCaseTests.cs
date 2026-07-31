@@ -17,26 +17,15 @@ using WebApi.Tests.Resources;
 
 namespace WebApi.Tests.Login.WithEmailAndPassword
 {
-    public class LoginWithEmailAndPasswordTests
-        : IClassFixture<MyRecipeBookApplicationFactory>
+    public class LoginWithEmailAndPasswordTests : BaseIntegrationTest
     {
         private const string REQUEST_URI = "/authentication";
 
         private readonly UserIdentityManager _User1;
 
-        private readonly HttpClient _httpClient;
-     
-        //private readonly MyRecipeBookDbContext _dbContext;
-
-
-        public LoginWithEmailAndPasswordTests(MyRecipeBookApplicationFactory factory)
+        public LoginWithEmailAndPasswordTests(MyRecipeBookApplicationFactory  factory) :base(factory) 
         {
-            _httpClient = factory.CreateClient();
             _User1 = factory._User1;
-
-            //var scope = factory.Services.CreateScope();
-
-            //_dbContext = scope.ServiceProvider.GetRequiredService<MyRecipeBookDbContext>();
         }
 
 
@@ -49,7 +38,7 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
                 Password = _User1.GetPassword(),
             };
 
-            var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+            var response = await Post(REQUEST_URI, request);
 
             response.StatusCode.ShouldBe(HttpStatusCode.OK);
 
@@ -60,11 +49,6 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
             responseData.RootElement.GetProperty("name").GetString().ShouldBe(_User1.GetName());
             responseData.RootElement.GetProperty("tokens").GetProperty("accessToken").GetString().ShouldBeEmpty();
 
-            //var userExists = await _dbContext.Users.AnyAsync(user => user.Active
-            //&& user.Name.Equals(request.Name)
-            //&& user.Email.Equals(request.Email));
-
-            //userExists.ShouldBeTrue();
 
         }
 
@@ -74,11 +58,9 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
         {
             var request = RequestLoginJsonBuilder.Build();
            
-            _httpClient.DefaultRequestHeaders.AcceptLanguage.Clear();
-            _httpClient.DefaultRequestHeaders.AcceptLanguage.ParseAdd(culture);
+         
 
-
-            var response = await _httpClient.PostAsJsonAsync(REQUEST_URI, request);
+            var response = await Post(REQUEST_URI, request, culture);
 
             response.StatusCode.ShouldBe(HttpStatusCode.Unauthorized);
 
