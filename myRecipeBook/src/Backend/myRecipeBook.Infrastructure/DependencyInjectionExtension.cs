@@ -5,9 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 using myRecipeBook.Domain.Repositories;
 using myRecipeBook.Domain.Repositories.User;
 using myRecipeBook.Domain.Security.PasswordHashing;
+using myRecipeBook.Domain.Security.Tokens;
 using myRecipeBook.Infrastructure.DataAccess;
 using myRecipeBook.Infrastructure.DataAccess.Repositories;
 using myRecipeBook.Infrastructure.Security.PasswordHashing;
+using myRecipeBook.Infrastructure.Security.Tokens.Access;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -42,17 +44,29 @@ namespace myRecipeBook.Infrastructure
                 services.AddFluentMigratorCore()
                     .ConfigureRunner(config =>
                     {
-                        
+
                         config
                         .AddMySql5()
                         .WithGlobalConnectionString(_ =>
                         {
                             var connectionString = configuration.GetConnectionString("DbConnection")!;
-                            return connectionString;    
+                            return connectionString;
                         })
                         .ScanIn(Assembly.Load("myRecipeBook.Infrastructure"))
                         .For.All();
                     });
+
+
+                services.AddScoped<IAccessTokenGenerator>(
+                    provider =>
+                    {
+                        var expirationTimeMinutes = configuration.GetValue<uint>("Jwt:ExpirationTimeMinutes");
+                        var signingKey = configuration.GetValue<string>("Jwt:SigningKey")!;
+
+                        return new JwtTokenHandler(expirationTimeMinutes, signingKey);
+
+                    });
+
             }
         }
     }

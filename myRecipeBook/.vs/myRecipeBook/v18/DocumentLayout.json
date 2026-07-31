@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9B9EBC2E-E915-4118-8263-1DA6F623A20D}|src\\Backend\\myRecipeBook.Application\\myRecipeBook.Application.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.application\\usecases\\login\\withemailandpassword\\loginwithemailandpasswordusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9EBC2E-E915-4118-8263-1DA6F623A20D}|src\\Backend\\myRecipeBook.Application\\myRecipeBook.Application.csproj|solutionrelative:src\\backend\\myrecipebook.application\\usecases\\login\\withemailandpassword\\loginwithemailandpasswordusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8D136A04-3E02-419C-A2F2-51DB342BF403}|src\\Backend\\myRecipeBook.Infrastructure\\myRecipeBook.Infrastructure.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.infrastructure\\security\\tokens\\access\\jwttokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8D136A04-3E02-419C-A2F2-51DB342BF403}|src\\Backend\\myRecipeBook.Infrastructure\\myRecipeBook.Infrastructure.csproj|solutionrelative:src\\backend\\myrecipebook.infrastructure\\security\\tokens\\access\\jwttokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F40BA55-7431-449E-B5FC-6D79CCDA1F29}|src\\Backend\\myRecipeBook.Domain\\myRecipeBook.Domain.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.domain\\security\\tokens\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F40BA55-7431-449E-B5FC-6D79CCDA1F29}|src\\Backend\\myRecipeBook.Domain\\myRecipeBook.Domain.csproj|solutionrelative:src\\backend\\myrecipebook.domain\\security\\tokens\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D136A04-3E02-419C-A2F2-51DB342BF403}|src\\Backend\\myRecipeBook.Infrastructure\\myRecipeBook.Infrastructure.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.infrastructure\\dependencyinjectionextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D136A04-3E02-419C-A2F2-51DB342BF403}|src\\Backend\\myRecipeBook.Infrastructure\\myRecipeBook.Infrastructure.csproj|solutionrelative:src\\backend\\myrecipebook.infrastructure\\dependencyinjectionextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\login\\withemailandpassword\\loginwithemailandpasswordusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B9EBC2E-E915-4118-8263-1DA6F623A20D}|src\\Backend\\myRecipeBook.Application\\myRecipeBook.Application.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.application\\usecases\\user\\register\\registeruseraccountusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9EBC2E-E915-4118-8263-1DA6F623A20D}|src\\Backend\\myRecipeBook.Application\\myRecipeBook.Application.csproj|solutionrelative:src\\backend\\myrecipebook.application\\usecases\\user\\register\\registeruseraccountusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\user\\register\\registeruseraccounttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\user\\register\\registeruseraccounttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7A7FAC3B-14FE-471B-A31B-DBD2CBB2D67D}|src\\Backend\\myRecipeBook.API\\myRecipeBook.API.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7A7FAC3B-14FE-471B-A31B-DBD2CBB2D67D}|src\\Backend\\myRecipeBook.API\\myRecipeBook.API.csproj|solutionrelative:src\\backend\\myrecipebook.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\test\\webapi.tests\\baseintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC09CFC6-309B-45C9-B3F7-EE5C50325C97}|test\\WebApi.Tests\\WebApi.Tests.csproj|solutionrelative:test\\webapi.tests\\baseintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F40BA55-7431-449E-B5FC-6D79CCDA1F29}|src\\Backend\\myRecipeBook.Domain\\myRecipeBook.Domain.csproj|c:\\fontes.csharp\\udemy\\meulivrodereceitas\\myrecipebook\\src\\backend\\myrecipebook.domain\\security\\tokens\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F40BA55-7431-449E-B5FC-6D79CCDA1F29}|src\\Backend\\myRecipeBook.Domain\\myRecipeBook.Domain.csproj|solutionrelative:src\\backend\\myrecipebook.domain\\security\\tokens\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,20 +62,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.API\\appsettings.Development.json",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.API\\appsettings.Development.json",
+              "RelativeToolTip": "src\\Backend\\myRecipeBook.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-31T20:42:45.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DependencyInjectionExtension.cs",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Infrastructure\\DependencyInjectionExtension.cs",
+              "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.Infrastructure\\DependencyInjectionExtension.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Infrastructure\\DependencyInjectionExtension.cs",
+              "RelativeToolTip": "src\\Backend\\myRecipeBook.Infrastructure\\DependencyInjectionExtension.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAgwEMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T20:36:16.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LoginWithEmailAndPasswordUseCase.cs",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Application\\UseCases\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCase.cs",
+              "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.Application\\UseCases\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCase.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Application\\UseCases\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCase.cs",
+              "RelativeToolTip": "src\\Backend\\myRecipeBook.Application\\UseCases\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCase.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowDEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T20:29:12.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisteruserAccountUseCase.cs",
+              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Application\\UseCases\\User\\Register\\RegisteruserAccountUseCase.cs",
+              "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.Application\\UseCases\\User\\Register\\RegisteruserAccountUseCase.cs",
+              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Application\\UseCases\\User\\Register\\RegisteruserAccountUseCase.cs",
+              "RelativeToolTip": "src\\Backend\\myRecipeBook.Application\\UseCases\\User\\Register\\RegisteruserAccountUseCase.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAnwCoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T20:27:41.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "JwtTokenHandler.cs",
               "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Infrastructure\\Security\\Tokens\\Access\\JwtTokenHandler.cs",
               "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.Infrastructure\\Security\\Tokens\\Access\\JwtTokenHandler.cs",
               "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Infrastructure\\Security\\Tokens\\Access\\JwtTokenHandler.cs",
               "RelativeToolTip": "src\\Backend\\myRecipeBook.Infrastructure\\Security\\Tokens\\Access\\JwtTokenHandler.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAuwCQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAnwCgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-31T18:58:55.654Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "IAccessTokenGenerator.cs",
               "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\src\\Backend\\myRecipeBook.Domain\\Security\\Tokens\\IAccessTokenGenerator.cs",
               "RelativeDocumentMoniker": "src\\Backend\\myRecipeBook.Domain\\Security\\Tokens\\IAccessTokenGenerator.cs",
@@ -80,33 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegisterUserAccountTests.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
-              "RelativeDocumentMoniker": "test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
-              "RelativeToolTip": "test\\WebApi.Tests\\User\\Register\\RegisterUserAccountTests.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAmwBkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T20:42:34.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginWithEmailAndPasswordUseCaseTests.cs",
-              "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "RelativeDocumentMoniker": "test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "ToolTip": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "RelativeToolTip": "test\\WebApi.Tests\\Login\\WithEmailAndPassword\\LoginWithEmailAndPasswordUseCaseTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T20:42:30.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BaseIntegrationTest.cs",
               "DocumentMoniker": "C:\\Fontes.csharp\\Udemy\\meulivrodereceitas\\myRecipeBook\\test\\WebApi.Tests\\BaseIntegrationTest.cs",
               "RelativeDocumentMoniker": "test\\WebApi.Tests\\BaseIntegrationTest.cs",
