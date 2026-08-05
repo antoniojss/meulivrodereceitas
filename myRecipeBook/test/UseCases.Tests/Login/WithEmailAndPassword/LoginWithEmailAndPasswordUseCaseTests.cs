@@ -32,7 +32,7 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
             result.ShouldNotBeNull();
             result.Tokens.ShouldNotBeNull();
             result.Name.ShouldBe(user.Name);
-            result.Tokens.AccessToken.ShouldBeNullOrEmpty();
+            result.Tokens.AccessToken.ShouldNotBeNullOrEmpty();
             result.Tokens.RefreshToken.ShouldBeNullOrEmpty();
 
         }
@@ -81,6 +81,8 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
         {
             var passwordHaserBilder = new IPasswordHasherBuilder();
 
+            var accessTokenGeneratorBuilder = IAccessTokenGeneratorBuilder.Build();   
+
             var userReadOnlyRepositoryBuilder = new IUserReadOnlyRepositoryBuilder();
 
             if (user is not null)
@@ -89,7 +91,7 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
             if (password.IsNotEmpty())
                 passwordHaserBilder.VerifyPassword(password);
 
-            return new LoginWithEmailAndPasswordUseCase(passwordHaserBilder.Build(), userReadOnlyRepositoryBuilder.Build());
+            return new LoginWithEmailAndPasswordUseCase(passwordHaserBilder.Build(), userReadOnlyRepositoryBuilder.Build(), accessTokenGeneratorBuilder);
         }
     }
 }

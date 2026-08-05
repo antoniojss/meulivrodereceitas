@@ -27,7 +27,7 @@ namespace UseCases.Tests.User.Register
             result.ShouldNotBeNull();
             result.Tokens.ShouldNotBeNull();
             result.Name.ShouldBe(request.Name);
-            result.Tokens.AccessToken.ShouldBeNullOrEmpty();
+            result.Tokens.AccessToken.ShouldNotBeNullOrEmpty();
             result.Tokens.RefreshToken.ShouldBeNullOrEmpty();
 
         }
@@ -68,6 +68,8 @@ namespace UseCases.Tests.User.Register
         {
             var unitofwork = UnitOfWorkBuilder.Build();
 
+            var accessTokenGeneratorBuilder = IAccessTokenGeneratorBuilder.Build();
+
             var userWriteOnlyRepository = IUserWriteOnlyRepositoryBuilder.Build();
 
             var userReadOnlyRepositoryBuilder = new IUserReadOnlyRepositoryBuilder();
@@ -79,7 +81,7 @@ namespace UseCases.Tests.User.Register
 
             var passwordHasher = new IPasswordHasherBuilder().Build();
 
-            return new RegisterUserAccountUseCase(passwordHasher, userWriteOnlyRepository, userReadOnlyRepositoryBuilder.Build(), unitofwork);
+            return new RegisterUserAccountUseCase(passwordHasher, userWriteOnlyRepository, userReadOnlyRepositoryBuilder.Build(), unitofwork, accessTokenGeneratorBuilder);
         }
     }
 }

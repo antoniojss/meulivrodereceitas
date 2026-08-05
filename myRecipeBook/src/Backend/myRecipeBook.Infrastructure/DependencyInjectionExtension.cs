@@ -13,6 +13,7 @@ using myRecipeBook.Infrastructure.Security.Tokens.Access;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Configuration;
 using System.Configuration.Internal;
 using System.Reflection;
 using System.Text;
@@ -25,14 +26,12 @@ namespace myRecipeBook.Infrastructure
         {
             public void AddInfrastructure(IConfiguration configuration)
             {
+                services.AddRepositories();
+
+                services.AddTokensHandler(configuration);
+
                 services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
-
-                services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
-
-                services.AddScoped<IUserReadOnlyRepository, UserRepository>();
-
-                services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+                               
                 services.AddDbContext<MyRecipeBookDbContext>(config =>
                 {
                     var connectionString = configuration.GetConnectionString("DbConnection");
@@ -55,18 +54,28 @@ namespace myRecipeBook.Infrastructure
                         .ScanIn(Assembly.Load("myRecipeBook.Infrastructure"))
                         .For.All();
                     });
+            }
 
+            private void AddRepositories()
+            {
+                services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
 
+                services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+
+                services.AddScoped<IUnitOfWork, UnitOfWork>();
+            }
+
+            private void AddTokensHandler(IConfiguration configuration)
+            {
                 services.AddScoped<IAccessTokenGenerator>(
-                    provider =>
-                    {
-                        var expirationTimeMinutes = configuration.GetValue<uint>("Jwt:ExpirationTimeMinutes");
-                        var signingKey = configuration.GetValue<string>("Jwt:SigningKey")!;
+                provider =>
+                {
+                    var expirationTimeMinutes = configuration.GetValue<uint>("Jwt:ExpirationTimeMinutes");
+                    var signingKey = configuration.GetValue<string>("Jwt:SigningKey")!;
 
-                        return new JwtTokenHandler(expirationTimeMinutes, signingKey);
+                    return new JwtTokenHandler(expirationTimeMinutes, signingKey);
 
-                    });
-
+                });
             }
         }
     }

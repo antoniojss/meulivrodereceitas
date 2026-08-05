@@ -3,6 +3,7 @@ using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
 using myRecipeBook.Application.UseCases.User.Register;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace myRecipeBook.Application
@@ -10,6 +11,10 @@ namespace myRecipeBook.Application
     public static class DependencyInjectionExtension
     {
         public static void AddApplication(this IServiceCollection services)
+        {
+           services.AddUseCases();  
+        }
+        public static void AddUseCases(this IServiceCollection services)
         {
             services.AddScoped<IRegisterUserAccountUseCase, RegisterUserAccountUseCase>();
             services.AddScoped<ILoginWithEmailAndPasswordUseCase, LoginWithEmailAndPasswordUseCase>();
