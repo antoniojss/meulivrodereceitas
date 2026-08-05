@@ -26,6 +26,8 @@ namespace myRecipeBook.Infrastructure.Security.Tokens.Access
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
+//                      new Claim(JwtRegisteredClaimNames.Sub, Guid.NewGuid().ToString())
+
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

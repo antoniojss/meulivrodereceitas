@@ -5,17 +5,24 @@ using System.Globalization;
 using myRecipeBook.Application;
 using myRecipeBook.Infrastructure;
 using myRecipeBook.API.Converters;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.IdentityModel.JsonWebTokens;
+using System.Security.Claims;
+using myRecipeBook.Domain.Extensions;
+using myRecipeBook.Domain.Repositories.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 //7 - esta alteração no controle e para pegar os dados do regex e colocar certo no nome 
-builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new StringConverter()));  
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new StringConverter()));
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 // teste de checkin 17-06-2026
- 
+
 builder.Services.AddOpenApi();
 //1 - incluir o pacote do seagger no pacote nuget Swashbuckle.AspNetCore
 builder.Services.AddSwaggerGen();
@@ -49,6 +56,47 @@ builder.Services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
 //6 - converter todas as urls para minusculo, para não ter problemas de rotas com letras maiusculas e minusculas
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(jwtoptions =>
+    {
+        var signingKey = builder.Configuration.GetValue<string>("Jwt:SigningKey")!;
+
+        jwtoptions.TokenValidationParameters = new()
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey)),
+            ValidateLifetime = true,
+
+            ValidateAudience = false,
+            ValidateIssuer = false,
+            ClockSkew = TimeSpan.Zero
+        };
+
+        jwtoptions.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = async context =>
+            {
+                var userId = context.Principal?.FindFirstValue(JwtRegisteredClaimNames.Sub)
+                ?? context.Principal?.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                if (userId.IsEmpty())
+                {
+                    context.Fail("Invalid Subject");
+                    return;
+                }
+
+                var userRepository = context.HttpContext.RequestServices.GetRequiredService<IUserReadOnlyRepository>();
+
+                var existUser = await userRepository.ExistActiveUserWithId(Guid.Parse(userId));
+                if (existUser == false)
+                {
+                    context.Fail("User not found");
+                    //return;
+                }
+            }
+        };
+    });
+
 var app = builder.Build();
 
 //acessando o serviço de injeção de dependencia 
@@ -60,13 +108,13 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     //2 - incluir os seviços do Swagger do pacote nuget Swashbuckle.AspNetCore
-    app.MapSwagger(); 
+    app.MapSwagger();
     app.MapSwaggerUI();
 
     //3 - quando estiver desenvolvedo a aplicação abrir a pasta de Properties e alterar o arquivo launchSettings.json,
     //    launchBrowser: true,  "launchUrl": "Swagger", para aparecer na tela.
-    
-    
+
+
 }
 
 app.UseHttpsRedirection();
@@ -80,7 +128,7 @@ await ExecuteMigrations();
 app.Run();
 
 async Task ExecuteMigrations()
-{ 
+{
     await using var scope = app.Services.CreateAsyncScope();
     DatabaseMigration.ExecuteMigration(scope.ServiceProvider);
 }

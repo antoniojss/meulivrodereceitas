@@ -68,5 +68,15 @@
         "StatusCode": 400
       }
     ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.UsersController",
+    "Method": "GetUserProfile",
+    "RelativePath": "users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

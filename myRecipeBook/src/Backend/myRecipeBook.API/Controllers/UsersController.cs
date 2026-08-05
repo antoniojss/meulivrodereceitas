@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Communication.Requests;
 using myRecipeBook.Communication.Responses;
@@ -39,6 +40,14 @@ namespace myRecipeBook.API.Controllers
            var result = await useCase.Execute(request);
             // registra a conta do usuario
             return Created(string.Empty, result);
-        }       
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetUserProfile()
+        {
+            return Ok("API myRecipeBook is running");
+        }   
     }
 }

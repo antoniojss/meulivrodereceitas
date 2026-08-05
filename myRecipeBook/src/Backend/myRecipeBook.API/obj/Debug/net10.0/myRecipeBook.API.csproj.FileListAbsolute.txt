@@ -292,3 +292,4 @@ C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.API\bin\Debug\net10.0\appsettings.Tests.json
 C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.API\obj\Debug\net10.0\myRecipeBook.API.sourcelink.json
+C:\Fontes.csharp\Udemy\meulivrodereceitas\myRecipeBook\src\Backend\myRecipeBook.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
