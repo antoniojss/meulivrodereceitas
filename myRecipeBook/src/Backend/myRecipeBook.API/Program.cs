@@ -12,6 +12,8 @@ using Microsoft.IdentityModel.JsonWebTokens;
 using System.Security.Claims;
 using myRecipeBook.Domain.Extensions;
 using myRecipeBook.Domain.Repositories.User;
+using myRecipeBook.Communication.Responses;
+using myRecipeBook.Exception;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,25 +78,43 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             OnTokenValidated = async context =>
             {
-                var userId = context.Principal?.FindFirstValue(JwtRegisteredClaimNames.Sub)
+                var subject = context.Principal?.FindFirstValue(JwtRegisteredClaimNames.Sub)
                 ?? context.Principal?.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                if (userId.IsEmpty())
+                if (Guid.TryParse(subject, out var userId) == false)
                 {
-                    context.Fail("Invalid Subject");
+                    context.Fail("Invalid Token Subject");
                     return;
                 }
 
                 var userRepository = context.HttpContext.RequestServices.GetRequiredService<IUserReadOnlyRepository>();
 
-                var existUser = await userRepository.ExistActiveUserWithId(Guid.Parse(userId));
-                if (existUser == false)
+                var UserExists = await userRepository.ExistActiveUserWithId(userId);
+                if (UserExists == false)
                 {
                     context.Fail("User not found");
                     //return;
                 }
+            },
+            OnChallenge = async context =>
+            {
+                context.HandleResponse();
+
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                context.Response.ContentType = "application/json";
+
+                var response = context.AuthenticateFailure switch
+                {
+                    null => new ResponseErrorJson(ResourceMessagesException.VALIDATION_ACCESS_TOKEN_REQUIRED),
+                    SecurityTokenExpiredException => new ResponseErrorJson("Token Expired", accessTokenExpired: true),
+                    _ => new ResponseErrorJson(ResourceMessagesException.VALIDATION_RESOURCE_ACCESS_DENIED),
+                };
+
+                await context.Response.WriteAsJsonAsync(response);
             }
+
         };
+
     });
 
 var app = builder.Build();

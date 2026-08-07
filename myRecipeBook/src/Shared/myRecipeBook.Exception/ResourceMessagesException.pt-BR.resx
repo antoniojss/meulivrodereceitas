@@ -123,6 +123,9 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro interno do servidor. Por favor verifique!</value>
   </data>
+  <data name="VALIDATION_ACCESS_TOKEN_REQUIRED" xml:space="preserve">
+    <value>Access Token Requerido , Por Favor Verifique!</value>
+  </data>
   <data name="VALIDATION_EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>Email ja cadastrado na base de dados, Por Favor , escolha outro!</value>
   </data>
@@ -143,5 +146,8 @@
   </data>
   <data name="VALIDATION_PASSWORD_REQUERID" xml:space="preserve">
     <value>A senha é obrigatória. Por Favor Verifique!</value>
+  </data>
+  <data name="VALIDATION_RESOURCE_ACCESS_DENIED" xml:space="preserve">
+    <value>Você não tem acesso a este recurso .Por favor Verifique!</value>
   </data>
 </root>

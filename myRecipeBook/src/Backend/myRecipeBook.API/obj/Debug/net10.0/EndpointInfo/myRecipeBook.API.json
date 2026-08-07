@@ -196,6 +196,10 @@
             },
             "nullable": true,
             "readOnly": true
+          },
+          "accessTokenExpired": {
+            "type": "boolean",
+            "readOnly": true
           }
         },
         "additionalProperties": false

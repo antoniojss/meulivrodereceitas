@@ -123,6 +123,9 @@
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Internal server error! Please check!</value>
   </data>
+  <data name="VALIDATION_ACCESS_TOKEN_REQUIRED" xml:space="preserve">
+    <value>Access Token Required! Please Check!</value>
+  </data>
   <data name="VALIDATION_EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>Email already registered in the database; please choose another one!</value>
   </data>
@@ -143,5 +146,8 @@
   </data>
   <data name="VALIDATION_PASSWORD_REQUERID" xml:space="preserve">
     <value>Password is required. Please check!</value>
+  </data>
+  <data name="VALIDATION_RESOURCE_ACCESS_DENIED" xml:space="preserve">
+    <value>You Don't have Access to this Resource. Please Check!</value>
   </data>
 </root>
