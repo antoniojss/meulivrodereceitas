@@ -14,6 +14,9 @@ using myRecipeBook.Domain.Extensions;
 using myRecipeBook.Domain.Repositories.User;
 using myRecipeBook.Communication.Responses;
 using myRecipeBook.Exception;
+using Microsoft.OpenApi;
+using myRecipeBook.Domain.Security.Tokens;
+using myRecipeBook.API.Token;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +30,31 @@ builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializ
 
 builder.Services.AddOpenApi();
 //1 - incluir o pacote do seagger no pacote nuget Swashbuckle.AspNetCore
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter only your access token. Swegger will add 'Bearer' prefix automatically",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+
+    options.AddSecurityRequirement(openApiDocument =>
+    {
+        return new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecuritySchemeReference("Bearer", openApiDocument),
+                       // new List<string>() -- lista de string vazia
+                       []
+                    }
+
+                };
+    });
+});
 
 builder.Services.AddInfrastructure(builder.Configuration);
 //Colocar static na classe DependencyInjectionExtension para poder chamar o método
@@ -35,6 +62,9 @@ builder.Services.AddInfrastructure(builder.Configuration);
 //myRecipeBook.Infrastructure.DependencyInjectionExtension.AddInfrastructure(builder.Services);
 //myRecipeBook.Application.DependencyInjectionExtension.AddApplication(builder.Services);
 builder.Services.AddApplication();
+
+builder.Services.AddScoped<IAccessTokenProvider, HttpContextTokenProvider>();   
+builder.Services.AddHttpContextAccessor();  
 
 
 //3 definir a injeção de dependencia para dar suporte a multiplos idiomas

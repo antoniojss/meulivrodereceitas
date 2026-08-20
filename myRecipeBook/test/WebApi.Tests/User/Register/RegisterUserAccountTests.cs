@@ -62,7 +62,7 @@ namespace WebApi.Tests.User.Register
             var request = RequestRegisterUserAccountJsonBuilder.Build();
             request.Name = string.Empty;
             
-            var response = await Post(REQUEST_URI, request, culture);
+            var response = await Post(REQUEST_URI, request, culture: culture);
 
             response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
 

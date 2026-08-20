@@ -126,6 +126,9 @@
   <data name="VALIDATION_ACCESS_TOKEN_REQUIRED" xml:space="preserve">
     <value>Token de acceso requerido. ¡Por favor, verifique!</value>
   </data>
+  <data name="VALIDATION_CURRENT_PASSWORD" xml:space="preserve">
+    <value>La contraseña ingresada no coincide con la registrada; por favor, verifíquela.</value>
+  </data>
   <data name="VALIDATION_EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>El correo electrónico ya está registrado en la base de datos; ¡por favor, elija otro!</value>
   </data>
@@ -140,6 +143,48 @@
   </data>
   <data name="VALIDATION_NAME_REQUIRED" xml:space="preserve">
     <value>Se requiere el nombre. ¡Por favor, verifique!</value>
+  </data>
+  <data name="VALIDATION_RECIPE_TITLE_REQUIRED" xml:space="preserve">
+    <value>El título de la receta es obligatorio. ¡Por favor, revíselo!</value>
+  </data>
+  <data name="VALIDATION_DESCRIPTION_EXCEED_QTYMAX_CHARACTERS" xml:space="preserve">
+    <value>El título de la receta no debe exceder los 500 caracteres. ¡Por favor, compruébelo!</value>
+  </data>
+  <data name="VALIDATION_INGREDIENT_EMPTY" xml:space="preserve">
+    <value>Ingrediente. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_AT_LAST_ONE_INGREDIENT" xml:space="preserve">
+    <value>Se requiere al menos un ingrediente. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_INGREDIENT_ITEM_REQUIRED" xml:space="preserve">
+    <value>El ítem del ingrediente es obligatorio. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_AT_LAST_ONE_INSTRUCTION" xml:space="preserve">
+    <value>El ítem del ingrediente es obligatorio. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_INSTRUCTIONS_REQUIRED" xml:space="preserve">
+    <value>Se requiere al menos una instrucción. ¡Por favor, verifíquela!</value>
+  </data>
+  <data name="VALIDATION_INSTRUCTION_DESCRIPTION_REQUIRED" xml:space="preserve">
+    <value>La descripción de la instrucción es obligatoria. ¡Por favor, verifíquela!</value>
+  </data>
+  <data name="VALIDATION_INSTRUCTION_ORDER_INVALID" xml:space="preserve">
+    <value>El orden de la instrucción debe ser mayor que cero. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_COOKTIME_INVALID" xml:space="preserve">
+    <value>Valor de tiempo de cocción inválido. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_DISHTYPE_INVALID" xml:space="preserve">
+    <value>Valor de tipo de plato inválido. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_RECIPE_DISHTYPES_REQUIRED" xml:space="preserve">
+    <value>Se requiere al menos un tipo de plato. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED" xml:space="preserve">
+    <value>Existen órdenes de instrucción duplicadas. Cada instrucción debe tener una orden única. ¡Por favor, verifíquelo!</value>
+  </data>
+  <data name="VALIDATION_PASSWORD_MIN_LENGTH" xml:space="preserve">
+    <value>La contraseña debe tener un mínimo de 6 caracteres. ¡Por favor, verifique!</value>
   </data>
   <data name="VALIDATION_PASSWORD_MUST_QTY_CHARACTERS" xml:space="preserve">
     <value>La contraseña que introduzca debe tener 7 caracteres. Por favor, verifíquela.</value>

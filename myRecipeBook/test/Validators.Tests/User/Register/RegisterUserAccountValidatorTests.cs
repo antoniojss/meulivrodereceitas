@@ -1,4 +1,5 @@
 ﻿using CommonTestUtilities.Requests;
+using myRecipeBook.Application.UseCases.User.ChangePassword;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Communication.Requests;
 using myRecipeBook.Exception;
@@ -94,6 +95,30 @@ namespace Validators.Tests.User.Register
                 errors.ShouldContain(error => error.ErrorMessage.Equals(ResourceMessagesException.VALIDATION_PASSWORD_REQUERID.ToString()));
             });
         }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        public void Validate_ShouldHaveError_WhenNewPasswordIsInvalid(int passwordLength)
+        {
+            var validator = new RegisterUserAccountValidator();
+
+            var request = RequestRegisterUserAccountJsonBuilder.Build(passwordLength);
+
+            var result = validator.Validate(request);
+
+            result.IsValid.ShouldBeFalse();
+
+            result.Errors.ShouldSatisfyAllConditions(errors =>
+            {
+                errors.Count.ShouldBe(1);
+                errors.ShouldContain(error => error.ErrorMessage.Equals(ResourceMessagesException.VALIDATION_PASSWORD_MIN_LENGTH));
+            });
+        }
+    
 
         [Fact]
         public void Validate_ShouldHaveError_WhenEmailIsInvalid()

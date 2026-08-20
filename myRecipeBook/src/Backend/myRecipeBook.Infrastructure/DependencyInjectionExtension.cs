@@ -2,12 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using myRecipeBook.Domain.Identity;
 using myRecipeBook.Domain.Repositories;
+using myRecipeBook.Domain.Repositories.Recipe;
 using myRecipeBook.Domain.Repositories.User;
 using myRecipeBook.Domain.Security.PasswordHashing;
 using myRecipeBook.Domain.Security.Tokens;
 using myRecipeBook.Infrastructure.DataAccess;
 using myRecipeBook.Infrastructure.DataAccess.Repositories;
+using myRecipeBook.Infrastructure.Identity;
 using myRecipeBook.Infrastructure.Security.PasswordHashing;
 using myRecipeBook.Infrastructure.Security.Tokens.Access;
 using System;
@@ -30,8 +33,10 @@ namespace myRecipeBook.Infrastructure
 
                 services.AddTokensHandler(configuration);
 
+                services.AddScoped<ILoggedUser, LoggedUser>();
+
                 services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
-                               
+
                 services.AddDbContext<MyRecipeBookDbContext>(config =>
                 {
                     var connectionString = configuration.GetConnectionString("DbConnection");
@@ -58,12 +63,19 @@ namespace myRecipeBook.Infrastructure
 
             private void AddRepositories()
             {
+                //UserRepository
                 services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
 
                 services.AddScoped<IUserReadOnlyRepository, UserRepository>();
 
                 services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+                services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
+
+                // RecipeRepository
+                services.AddScoped<IRecipeWriteOnlyRepository, RecipeRepository>();
             }
+
 
             private void AddTokensHandler(IConfiguration configuration)
             {

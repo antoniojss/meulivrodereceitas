@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using myRecipeBook.Application.UseCases.Shared.Validators;
 using myRecipeBook.Communication.Requests;
 using myRecipeBook.Domain.Extensions;
 using myRecipeBook.Exception;
@@ -16,8 +17,7 @@ namespace myRecipeBook.Application.UseCases.User.Register
                 .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_NAME_REQUIRED.ToString());
             RuleFor(user => user.Email)
                 .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_EMAIL_REQUERID.ToString());
-            RuleFor(user => user.Password)
-                .NotEmpty().WithMessage(ResourceMessagesException.VALIDATION_PASSWORD_REQUERID.ToString());
+            RuleFor(user => user.Password).Password();
             When(user => user.Email.IsNotEmpty(), () =>
             {
                 RuleFor(user => user.Email).EmailAddress().WithMessage(ResourceMessagesException.INVALID_EMAIL_FORMAT.ToString());

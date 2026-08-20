@@ -25,7 +25,7 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
 
         public LoginWithEmailAndPasswordTests(MyRecipeBookApplicationFactory  factory) :base(factory) 
         {
-            _User1 = factory._User1;
+            _User1 = factory.User1;
         }
 
 
@@ -59,7 +59,7 @@ namespace WebApi.Tests.Login.WithEmailAndPassword
            
          
 
-            var response = await Post(REQUEST_URI, request, culture);
+            var response = await Post(REQUEST_URI, request,  culture: culture);
 
             response.StatusCode.ShouldBe(HttpStatusCode.Unauthorized);
 

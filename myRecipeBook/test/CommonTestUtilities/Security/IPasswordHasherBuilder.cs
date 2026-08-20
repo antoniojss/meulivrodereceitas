@@ -17,9 +17,11 @@ namespace CommonTestUtilities.Security
 
             _mock.Setup(passwordHasher => passwordHasher.HashPassword(It.IsAny<string>())).Returns("hashed_password");
         }
-        public void VerifyPassword(string password)
+        public IPasswordHasherBuilder VerifyPassword(string password)
         {
             _mock.Setup(repository => repository.VerifyPassword(password, It.IsAny<string>())).Returns(true);
+       
+            return this;
         }
         public IPasswordHasher Build()
         {

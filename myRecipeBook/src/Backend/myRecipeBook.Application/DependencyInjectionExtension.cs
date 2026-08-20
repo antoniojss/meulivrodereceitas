@@ -1,6 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
+using myRecipeBook.Application.UseCases.Recipe.Register;
+using myRecipeBook.Application.UseCases.User.ChangePassword;
+using myRecipeBook.Application.UseCases.User.Profile;
 using myRecipeBook.Application.UseCases.User.Register;
+using myRecipeBook.Application.UseCases.User.Update;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -12,12 +17,23 @@ namespace myRecipeBook.Application
     {
         public static void AddApplication(this IServiceCollection services)
         {
-           services.AddUseCases();  
+           services.AddUseCases();
+           MapsterConfiguration.Configure();
         }
         public static void AddUseCases(this IServiceCollection services)
         {
+            //Users 
             services.AddScoped<IRegisterUserAccountUseCase, RegisterUserAccountUseCase>();
             services.AddScoped<ILoginWithEmailAndPasswordUseCase, LoginWithEmailAndPasswordUseCase>();
+            services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+            services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+            services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+            
+            //Recipe
+            services.AddScoped<IRegisterRecipeUseCase, RegisterRecipeUseCase>();
+
+
+
         }
     }
 }

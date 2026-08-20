@@ -88,6 +88,60 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a At least one ingredient is required..
+        /// </summary>
+        public static string VALIDATION_AT_LAST_ONE_INGREDIENT {
+            get {
+                return ResourceManager.GetString("VALIDATION_AT_LAST_ONE_INGREDIENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Ingredient item is required! Please Verify..
+        /// </summary>
+        public static string VALIDATION_AT_LAST_ONE_INSTRUCTION {
+            get {
+                return ResourceManager.GetString("VALIDATION_AT_LAST_ONE_INSTRUCTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid cook time value..
+        /// </summary>
+        public static string VALIDATION_COOKTIME_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_COOKTIME_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The current password is incorrect, please verify!.
+        /// </summary>
+        public static string VALIDATION_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("VALIDATION_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Recipe title must not exceed 500 characters..
+        /// </summary>
+        public static string VALIDATION_DESCRIPTION_EXCEED_QTYMAX_CHARACTERS {
+            get {
+                return ResourceManager.GetString("VALIDATION_DESCRIPTION_EXCEED_QTYMAX_CHARACTERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid dish type value..
+        /// </summary>
+        public static string VALIDATION_DISHTYPE_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_DISHTYPE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email already registered in the database; please choose another one!.
         /// </summary>
         public static string VALIDATION_EMAIL_ALREADY_EXISTS {
@@ -102,6 +156,51 @@ namespace myRecipeBook.Exception {
         public static string VALIDATION_EMAIL_REQUERID {
             get {
                 return ResourceManager.GetString("VALIDATION_EMAIL_REQUERID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Ingredient is required, can&apos;t  be empty..
+        /// </summary>
+        public static string VALIDATION_INGREDIENT_EMPTY {
+            get {
+                return ResourceManager.GetString("VALIDATION_INGREDIENT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Please inform last one  Ingredient item is required! Please Verify..
+        /// </summary>
+        public static string VALIDATION_INGREDIENT_ITEM_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_INGREDIENT_ITEM_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Instruction description is required..
+        /// </summary>
+        public static string VALIDATION_INSTRUCTION_DESCRIPTION_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_INSTRUCTION_DESCRIPTION_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Instruction order must be greater than zero..
+        /// </summary>
+        public static string VALIDATION_INSTRUCTION_ORDER_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_INSTRUCTION_ORDER_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a At least one instruction is required..
+        /// </summary>
+        public static string VALIDATION_INSTRUCTIONS_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_INSTRUCTIONS_REQUIRED", resourceCulture);
             }
         }
         
@@ -133,6 +232,15 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must be 6 characters long. Please Verify!.
+        /// </summary>
+        public static string VALIDATION_PASSWORD_MIN_LENGTH {
+            get {
+                return ResourceManager.GetString("VALIDATION_PASSWORD_MIN_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Password must be at least 7 characters long. Please Check!.
         /// </summary>
         public static string VALIDATION_PASSWORD_MUST_QTY_CHARACTERS {
@@ -147,6 +255,33 @@ namespace myRecipeBook.Exception {
         public static string VALIDATION_PASSWORD_REQUERID {
             get {
                 return ResourceManager.GetString("VALIDATION_PASSWORD_REQUERID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Recipe title is required. Please check!.
+        /// </summary>
+        public static string VALIDATION_RECIPE_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_RECIPE_TITLE_REQUIRED", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a At least one dish type is required.
+        /// </summary>
+        public static string VALIDATION_RECIPE_DISHTYPES_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_RECIPE_DISHTYPES_REQUIRED", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There are duplicated instruction orders. Each instruction must have a unique order.
+        /// </summary>
+        public static string VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED {
+            get {
+                return ResourceManager.GetString("VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED", resourceCulture);
             }
         }
         
