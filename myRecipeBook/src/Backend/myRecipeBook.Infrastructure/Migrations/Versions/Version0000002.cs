@@ -13,7 +13,7 @@ namespace myRecipeBook.Infrastructure.Migrations.Versions
             Create.Table("Recipes")
                 .WithColumn("Id").AsGuid().PrimaryKey().NotNullable()
                 .WithColumn("Title").AsString(500).NotNullable()
-                .WithColumn("CookTime").AsInt32().NotNullable()
+                .WithColumn("CookTime").AsString(50).NotNullable()
                 .WithColumn("UserId").AsGuid().NotNullable()
                 .WithColumn("Active").AsBoolean().NotNullable().WithDefaultValue(true);
 
@@ -35,7 +35,7 @@ namespace myRecipeBook.Infrastructure.Migrations.Versions
             // RecipeDishTypes
             Create.Table("RecipeDishTypes")
                 .WithColumn("Id").AsGuid().PrimaryKey().NotNullable()
-                .WithColumn("Type").AsInt32().NotNullable()
+                .WithColumn("Type").AsString(50).NotNullable()
                 .WithColumn("RecipeId").AsGuid().NotNullable()
                 .WithColumn("Active").AsBoolean().NotNullable().WithDefaultValue(true);
 

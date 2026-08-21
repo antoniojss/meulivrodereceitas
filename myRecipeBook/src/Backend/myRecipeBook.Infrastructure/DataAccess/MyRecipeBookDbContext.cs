@@ -18,9 +18,16 @@ namespace myRecipeBook.Infrastructure.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<RecipeDishType>().ToTable("RecipeDishTypes");
+
+            modelBuilder.Entity<RecipeDishType>()
+                .ToTable("RecipeDishTypes")
+                .Property(dishType => dishType.Type).HasConversion<string>();
+
             modelBuilder.Entity<RecipeIngredient>().ToTable("RecipeIngredients");
             modelBuilder.Entity<RecipeInstruction>().ToTable("RecipeInstructions");
+
+            modelBuilder.Entity<Recipe>().Property(recipe => recipe.CookTime).HasConversion<string>();
+
         }
     }
 }

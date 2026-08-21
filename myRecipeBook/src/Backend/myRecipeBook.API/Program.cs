@@ -17,17 +17,22 @@ using myRecipeBook.Exception;
 using Microsoft.OpenApi;
 using myRecipeBook.Domain.Security.Tokens;
 using myRecipeBook.API.Token;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//7 - esta alteração no controle e para pegar os dados do regex e colocar certo no nome 
-builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new StringConverter()));
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+//7 - esta alteração no controle e para pegar os dados do regex e colocar certo no nome
+//converter o enum para texto ao invez de salvar o valor 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new StringConverter());
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 // teste de checkin 17-06-2026
-
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 //1 - incluir o pacote do seagger no pacote nuget Swashbuckle.AspNetCore
 builder.Services.AddSwaggerGen(options =>
@@ -63,8 +68,8 @@ builder.Services.AddInfrastructure(builder.Configuration);
 //myRecipeBook.Application.DependencyInjectionExtension.AddApplication(builder.Services);
 builder.Services.AddApplication();
 
-builder.Services.AddScoped<IAccessTokenProvider, HttpContextTokenProvider>();   
-builder.Services.AddHttpContextAccessor();  
+builder.Services.AddScoped<IAccessTokenProvider, HttpContextTokenProvider>();
+builder.Services.AddHttpContextAccessor();
 
 
 //3 definir a injeção de dependencia para dar suporte a multiplos idiomas

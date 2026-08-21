@@ -3,7 +3,9 @@ using myRecipeBook.Communication.Requests;
 using myRecipeBook.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
+[assembly:InternalsVisibleTo("UseCases.Tests")]
 
 namespace myRecipeBook.Application.Mappings
 {

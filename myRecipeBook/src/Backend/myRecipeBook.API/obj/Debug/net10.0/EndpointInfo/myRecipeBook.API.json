@@ -343,26 +343,24 @@
     "schemas": {
       "CookTime": {
         "enum": [
-          0,
-          1,
-          2
+          "UpTo30Minutes",
+          "From30To60Minutes",
+          "MoreThan60Minutes"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "DishType": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
+          "BreakFast",
+          "Lunch",
+          "Appetizer",
+          "Snack",
+          "Dessert",
+          "Dinner",
+          "Drink",
+          "Salad"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "RequestChangePasswordJson": {
         "type": "object",
