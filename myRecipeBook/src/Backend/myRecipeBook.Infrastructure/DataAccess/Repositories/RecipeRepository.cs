@@ -27,6 +27,9 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
             return await _dbContext
                 .Recipes
                 .AsNoTracking()
+                .Include(recipe => recipe.Ingredients) 
+                .Include(recipe => recipe.DishTypes)
+                .Include(recipe => recipe.Instructions.OrderBy(instruction => instruction.Order))
                 .FirstOrDefaultAsync(recipe => recipe.Active &&
                                                recipe.Id == recipeId && 
                                                recipe.UserId == userId);
