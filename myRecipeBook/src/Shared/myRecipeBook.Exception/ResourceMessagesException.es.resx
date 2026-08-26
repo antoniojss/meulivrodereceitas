@@ -180,6 +180,9 @@
   <data name="VALIDATION_RECIPE_DISHTYPES_REQUIRED" xml:space="preserve">
     <value>Se requiere al menos un tipo de plato. ¡Por favor, verifíquelo!</value>
   </data>
+  <data name="VALIDATION_INVALID_RECIPE_NOT_FOUND" xml:space="preserve">
+    <value>Receta no válida o no encontrada. ¡Por favor, verifique!</value>
+  </data>
   <data name="VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED" xml:space="preserve">
     <value>Existen órdenes de instrucción duplicadas. Cada instrucción debe tener una orden única. ¡Por favor, verifíquelo!</value>
   </data>

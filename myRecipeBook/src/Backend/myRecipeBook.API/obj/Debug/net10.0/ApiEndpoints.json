@@ -70,6 +70,41 @@
     ]
   },
   {
+    "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
+    "Method": "GetById",
+    "RelativePath": "recipes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseRecipeJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseErrorJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
     "ContainingType": "myRecipeBook.API.Controllers.UsersController",
     "Method": "Register",
     "RelativePath": "users",

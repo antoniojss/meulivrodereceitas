@@ -74,6 +74,8 @@ namespace myRecipeBook.Infrastructure
 
                 // RecipeRepository
                 services.AddScoped<IRecipeWriteOnlyRepository, RecipeRepository>();
+                services.AddScoped<IRecipeReadOnlyRepository, RecipeRepository>();
+
             }
 
 

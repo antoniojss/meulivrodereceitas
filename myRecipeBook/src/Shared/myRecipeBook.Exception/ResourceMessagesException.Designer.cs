@@ -205,6 +205,15 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid recipe, or Not Found, Please verify!.
+        /// </summary>
+        public static string VALIDATION_INVALID_RECIPE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("VALIDATION_INVALID_RECIPE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Login or Password, please verify  .
         /// </summary>
         public static string VALIDATION_LOGIN_INVALID {
@@ -259,29 +268,29 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Recipe title is required. Please check!.
-        /// </summary>
-        public static string VALIDATION_RECIPE_TITLE_REQUIRED {
-            get {
-                return ResourceManager.GetString("VALIDATION_RECIPE_TITLE_REQUIRED", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a At least one dish type is required.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a At least one dish type is required..
         /// </summary>
         public static string VALIDATION_RECIPE_DISHTYPES_REQUIRED {
             get {
                 return ResourceManager.GetString("VALIDATION_RECIPE_DISHTYPES_REQUIRED", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a There are duplicated instruction orders. Each instruction must have a unique order.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There are duplicated instruction orders. Each instruction must have a unique order..
         /// </summary>
         public static string VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED {
             get {
                 return ResourceManager.GetString("VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Recipe title is required. Please check!.
+        /// </summary>
+        public static string VALIDATION_RECIPE_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("VALIDATION_RECIPE_TITLE_REQUIRED", resourceCulture);
             }
         }
         

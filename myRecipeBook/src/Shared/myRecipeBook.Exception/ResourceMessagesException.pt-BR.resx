@@ -180,6 +180,9 @@
   <data name="VALIDATION_RECIPE_DISHTYPES_REQUIRED" xml:space="preserve">
     <value>Pelo menos um tipo de prato é obrigatório.</value>
   </data>
+  <data name="VALIDATION_INVALID_RECIPE_NOT_FOUND" xml:space="preserve">
+    <value>Receita invalida ou não encontrada. Por favor veifique!</value>
+  </data>
   <data name="VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED" xml:space="preserve">
     <value>Existem ordens de instrução duplicadas. Cada instrução deve ter uma ordem única.</value>
   </data>

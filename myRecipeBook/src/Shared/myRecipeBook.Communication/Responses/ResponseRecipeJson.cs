@@ -1,0 +1,19 @@
+﻿using myRecipeBook.Communication.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace myRecipeBook.Communication.Responses
+{
+    public class ResponseRecipeJson
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public IList<string> Ingredients { get; set; } = [];
+        public IList<ResponseInstructionJson> Instructions { get; set; } = [];
+        public IList<DishType> DishTypes { get; set; } = [];
+         public CookTime CookTime { get; set; } 
+
+
+    }
+}

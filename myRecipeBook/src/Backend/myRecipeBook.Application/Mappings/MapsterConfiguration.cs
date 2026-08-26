@@ -1,5 +1,6 @@
 ﻿using Mapster;
 using myRecipeBook.Communication.Requests;
+using myRecipeBook.Communication.Responses;
 using myRecipeBook.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,15 @@ namespace myRecipeBook.Application.Mappings
                 .Map(destination => destination.DishTypes,
                      request => request.DishTypes.Select(dishtypes => new RecipeDishType
                      {
-                        Type = (Domain.Enums.DishType)dishtypes
+                         Type = (Domain.Enums.DishType)dishtypes
                      }));
+
+            TypeAdapterConfig<Recipe, ResponseRecipeJson>
+             .NewConfig()
+             .Map(destination => destination.Ingredients,
+                  entity => entity.Ingredients.Select(ingredient => ingredient.Item))
+             .Map(destination => destination.DishTypes,
+                  entity => entity.DishTypes.Select(dishType => dishType.Type));
         }
     }
 }

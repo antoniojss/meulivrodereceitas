@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Register;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Communication.Requests;
@@ -25,5 +26,15 @@ namespace myRecipeBook.API.Controllers
             return Created(string.Empty, result);
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ResponseRecipeJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById(
+                                [FromRoute] Guid id,
+                                [FromServices] IGetRecipeByIdUseCase useCase)
+        {
+            var recipe = await useCase.Execute(id);
+            return Ok(recipe);
+        }
     }
 }

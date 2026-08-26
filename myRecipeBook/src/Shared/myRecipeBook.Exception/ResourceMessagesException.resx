@@ -180,6 +180,9 @@
   <data name="VALIDATION_RECIPE_DISHTYPES_REQUIRED" xml:space="preserve">
     <value>At least one dish type is required.</value>
   </data>
+  <data name="VALIDATION_INVALID_RECIPE_NOT_FOUND" xml:space="preserve">
+    <value>Invalid recipe, or Not Found, Please verify!</value>
+  </data>
   <data name="VALIDATION_RECIPE_INSTRUCTION_ORDER_DUPLICATED" xml:space="preserve">
     <value>There are duplicated instruction orders. Each instruction must have a unique order.</value>
   </data>
