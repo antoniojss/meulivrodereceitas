@@ -7,14 +7,20 @@ namespace WebApi.Tests.Resources
     public  class UserIdentityManager
     {
         private readonly myRecipeBook.Domain.Entities.User _user;
+        private readonly myRecipeBook.Domain.Entities.Recipe _recipe;
         private readonly string _password;
         private readonly string _accessToken;
 
-        public UserIdentityManager(myRecipeBook.Domain.Entities.User user, string password, string accessToken)
+        public UserIdentityManager(
+            myRecipeBook.Domain.Entities.User user,
+            myRecipeBook.Domain.Entities.Recipe recipe, 
+            string password, 
+            string accessToken)
         {
             _user = user;
             _password = password;
             _accessToken = accessToken;
+            _recipe = recipe;   
         }
 
         public Guid GetId() => _user.Id;
@@ -26,6 +32,7 @@ namespace WebApi.Tests.Resources
         public string GetPassword() => _password;
 
         public string GetAccessToken() => _accessToken;
+        public myRecipeBook.Domain.Entities.Recipe GetRecipe() => _recipe;  
     }
 
 }

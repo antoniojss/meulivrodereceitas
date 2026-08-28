@@ -61,12 +61,19 @@ namespace WebApi.Tests
 
             user.Password = passwordHashr.HashPassword(password);
 
+            
+            var recipe = RecipeBuilder.Build(user);
+            
             await dbContext.Users.AddAsync(user);
+
+            
+            await dbContext.Recipes.AddAsync(recipe);
+
             await dbContext.SaveChangesAsync();
 
             var user1AcessToken = accessTokenGenerator.Generate(user);
 
-            User1 = new UserIdentityManager(user, password, user1AcessToken);
+            User1 = new UserIdentityManager(user, recipe, password, user1AcessToken);
 
             TOKEN_USER_NOT_FOUND_IN_DATABASE = accessTokenGenerator.Generate(new myRecipeBook.Domain.Entities.User());
         }

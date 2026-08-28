@@ -28,6 +28,7 @@ namespace myRecipeBook.Infrastructure.DataAccess
 
             modelBuilder.Entity<Recipe>().Property(recipe => recipe.CookTime).HasConversion<string>();
 
+            modelBuilder.Entity<Recipe>().HasOne<User>().WithMany().HasForeignKey(recipe => recipe.UserId);
         }
     }
 }
