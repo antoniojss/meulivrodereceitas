@@ -22,6 +22,17 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
             await _dbContext.Recipes.AddAsync(recipe);
         }
 
+        public async Task<bool> DeleteById(Guid recipeId, Guid userId)
+        {
+            var recipe = await _dbContext
+                .Recipes
+               .Where(recipe => recipe.Active &&
+                                recipe.Id == recipeId &&
+                                recipe.UserId == userId)
+               .ExecuteDeleteAsync();
+
+            return recipe > 0;
+        }
         public async Task<Recipe?> GetById(Guid recipeId,  Guid userId)
         {
             return await _dbContext

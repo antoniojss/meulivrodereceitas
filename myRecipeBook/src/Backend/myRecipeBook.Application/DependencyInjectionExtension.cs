@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
+using myRecipeBook.Application.UseCases.Recipe.DeleteById;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Register;
 using myRecipeBook.Application.UseCases.User.ChangePassword;
@@ -33,7 +34,7 @@ namespace myRecipeBook.Application
             //Recipe
             services.AddScoped<IRegisterRecipeUseCase, RegisterRecipeUseCase>();
             services.AddScoped<IGetRecipeByIdUseCase, GetRecipeByIdUseCase>();
-
+            services.AddScoped<IDeleteRecipeByIdUseCase, DeleteRecipeByIdUseCase>();
 
         }
     }
