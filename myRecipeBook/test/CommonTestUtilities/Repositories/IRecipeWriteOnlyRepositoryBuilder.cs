@@ -1,4 +1,5 @@
 using Moq;
+using myRecipeBook.Domain.Entities;
 using myRecipeBook.Domain.Repositories.Recipe;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,19 @@ namespace CommonTestUtilities.Repositories
 {
     public class IRecipeWriteOnlyRepositoryBuilder
     {
-        public static IRecipeWriteOnlyRepository Build()
+        private readonly Mock<IRecipeWriteOnlyRepository> _mock;
+
+        public IRecipeWriteOnlyRepositoryBuilder()
         {
-            var mock = new Mock<IRecipeWriteOnlyRepository>();
-            return mock.Object;
+            _mock = new Mock<IRecipeWriteOnlyRepository>();
         }
+        public  IRecipeWriteOnlyRepository Build() => _mock.Object; 
+
+        public  IRecipeWriteOnlyRepositoryBuilder DeleteById(Recipe recipe)
+        {
+            _mock.Setup(repository => repository.DeleteById(recipe.Id, recipe.UserId)).ReturnsAsync(true);
+            return this;
+        }
+
     }
 }

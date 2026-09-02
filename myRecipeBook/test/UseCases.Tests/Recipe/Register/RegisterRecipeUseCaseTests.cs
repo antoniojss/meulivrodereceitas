@@ -82,7 +82,7 @@ namespace UseCases.Tests.Recipe.Register
 
             var loggedUser = ILoggedUserBuilder.Build(user);
 
-            var recipeWriteOnlyRepository = IRecipeWriteOnlyRepositoryBuilder.Build();
+            var recipeWriteOnlyRepository = new IRecipeWriteOnlyRepositoryBuilder().Build();
 
             var unitOfWork = UnitOfWorkBuilder.Build();
             

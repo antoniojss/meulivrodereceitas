@@ -23,8 +23,20 @@ namespace myRecipeBook.Infrastructure.DataAccess
                 .ToTable("RecipeDishTypes")
                 .Property(dishType => dishType.Type).HasConversion<string>();
 
-            modelBuilder.Entity<RecipeIngredient>().ToTable("RecipeIngredients");
-            modelBuilder.Entity<RecipeInstruction>().ToTable("RecipeInstructions");
+            // para informar ao entity framework que o valor do enum não será gerado
+            // automaticamente, pois ele é definido usuario(Guid Id)
+
+            modelBuilder.Entity<RecipeDishType>()
+              .ToTable("RecipeDishTypes")
+              .Property(dishType => dishType.Id).ValueGeneratedNever();
+
+            modelBuilder.Entity<RecipeIngredient>()
+                .ToTable("RecipeIngredients")
+                .Property(ingredient => ingredient.Id).ValueGeneratedNever();
+
+            modelBuilder.Entity<RecipeInstruction>()
+                .ToTable("RecipeInstructions")
+                .Property(instruction  => instruction.Id).ValueGeneratedNever();
 
             modelBuilder.Entity<Recipe>().Property(recipe => recipe.CookTime).HasConversion<string>();
 

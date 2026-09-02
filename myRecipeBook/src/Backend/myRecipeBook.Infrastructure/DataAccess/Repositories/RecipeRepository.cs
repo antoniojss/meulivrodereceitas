@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using IBM.Data.Db2;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.VisualBasic;
 using myRecipeBook.Domain.Entities;
 using myRecipeBook.Domain.Repositories.Recipe;
@@ -8,7 +10,7 @@ using System.Text;
 
 namespace myRecipeBook.Infrastructure.DataAccess.Repositories
 {
-    internal sealed class RecipeRepository : IRecipeWriteOnlyRepository, IRecipeReadOnlyRepository
+    internal sealed class RecipeRepository : IRecipeWriteOnlyRepository, IRecipeReadOnlyRepository, IRecipeUpdateOnlyRepository
     {
         private readonly MyRecipeBookDbContext _dbContext;
 
@@ -33,17 +35,30 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
 
             return recipe > 0;
         }
-        public async Task<Recipe?> GetById(Guid recipeId,  Guid userId)
+        async Task<Recipe?> IRecipeReadOnlyRepository.GetById(Guid recipeId, Guid userId)
         {
-            return await _dbContext
-                .Recipes
+            return await GetFullRecipes()
                 .AsNoTracking()
-                .Include(recipe => recipe.Ingredients) 
-                .Include(recipe => recipe.DishTypes)
-                .Include(recipe => recipe.Instructions.OrderBy(instruction => instruction.Order))
                 .FirstOrDefaultAsync(recipe => recipe.Active &&
-                                               recipe.Id == recipeId && 
+                                               recipe.Id == recipeId &&
                                                recipe.UserId == userId);
+        }
+
+        async Task<Recipe?> IRecipeUpdateOnlyRepository.GetById(Guid recipeId, Guid userId)
+        {
+            return await GetFullRecipes()
+                .FirstOrDefaultAsync(recipe => recipe.Active &&
+                                               recipe.Id == recipeId &&
+                                               recipe.UserId == userId);
+        }
+
+        public IIncludableQueryable<Recipe, IOrderedEnumerable<RecipeInstruction>> GetFullRecipes()
+        {
+            return _dbContext
+                .Recipes
+                .Include(recipe => recipe.Ingredients)
+                .Include(recipe => recipe.DishTypes)
+                .Include(recipe => recipe.Instructions.OrderBy(instruction => instruction.Order));
         }
     }
 }

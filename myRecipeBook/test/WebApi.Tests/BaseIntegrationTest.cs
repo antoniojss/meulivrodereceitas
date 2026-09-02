@@ -51,6 +51,14 @@ namespace WebApi.Tests
             return await _httpClient.GetAsync(requestURI);
         }
 
+        protected async Task<HttpResponseMessage> Delete(string requestURI,
+       string accessToken, string culture = "en-US")
+        {
+            ChangeRequestCulture(culture);
+            AuthorizeRequest(accessToken);
+            return await _httpClient.DeleteAsync(requestURI);
+        }
+
         private void ChangeRequestCulture(string culture)
         {
             _httpClient.DefaultRequestHeaders.AcceptLanguage.Clear();

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("myRecipeBook.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae99d4a111c81a2abf95e0139a0b0e9f677f0e94")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+204e1c6d71566c8a96559e17a41807b4a413cd37")]
 [assembly: System.Reflection.AssemblyProductAttribute("myRecipeBook.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("myRecipeBook.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

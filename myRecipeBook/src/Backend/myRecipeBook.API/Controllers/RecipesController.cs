@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Register;
+using myRecipeBook.Application.UseCases.Recipe.UpdateById;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Communication.Requests;
 using myRecipeBook.Communication.Responses;
 
 namespace myRecipeBook.API.Controllers
 {
+
     [Route("[controller]")]
     [ApiController]
     [Authorize]
@@ -46,6 +48,20 @@ namespace myRecipeBook.API.Controllers
                           [FromServices] IDeleteRecipeByIdUseCase useCase)
         {
             await useCase.Execute(id);
+            return NoContent();
+
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(
+                       [FromRoute] Guid id,
+                       [FromBody] RequestRecipeJson request,
+                       [FromServices] IUpdateRecipeByIdUseCase useCase)
+        {
+            await useCase.Execute(id, request);
             return NoContent();
 
         }
