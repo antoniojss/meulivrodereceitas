@@ -181,6 +181,26 @@
     ]
   },
   {
+    "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
+    "Method": "GetRecent",
+    "RelativePath": "recipes/recent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseRecipesJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "myRecipeBook.API.Controllers.UsersController",
     "Method": "Register",
     "RelativePath": "users",

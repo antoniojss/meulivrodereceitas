@@ -60,5 +60,16 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 .Include(recipe => recipe.DishTypes)
                 .Include(recipe => recipe.Instructions.OrderBy(instruction => instruction.Order));
         }
+
+        public async Task<IList<Recipe>> GetRecentRecipes(Guid userId)
+        {
+            return await _dbContext
+                .Recipes
+                .AsNoTracking()
+                .Where(recipe => recipe.Active && recipe.UserId == userId)
+                .OrderByDescending(recipe => recipe.Id)
+                .Take(6)
+                .ToListAsync(); 
+        }
     }
 }

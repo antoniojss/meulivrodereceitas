@@ -141,6 +141,35 @@
         }
       }
     },
+    "/recipes/recent": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRecipesJson"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRecipesJson"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseRecipesJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/recipes/{id}": {
       "get": {
         "tags": [
@@ -722,6 +751,33 @@
           },
           "cookTime": {
             "$ref": "#/components/schemas/CookTime"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseRecipeSummaryJson": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseRecipesJson": {
+        "type": "object",
+        "properties": {
+          "recipes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResponseRecipeSummaryJson"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

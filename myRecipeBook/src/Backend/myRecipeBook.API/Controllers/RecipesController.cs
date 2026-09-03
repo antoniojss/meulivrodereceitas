@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
+using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Application.UseCases.Recipe.Register;
 using myRecipeBook.Application.UseCases.Recipe.UpdateById;
 using myRecipeBook.Application.UseCases.User.Register;
@@ -27,6 +28,17 @@ namespace myRecipeBook.API.Controllers
             var result = await useCase.Execute(request);
             // registra a receita 
             return Created(string.Empty, result);
+        }
+        
+        // a ordem dos endpoints sao importantes
+        // a exemplo deste GET(id)  quando esta nomeado vem por ultimo 
+        
+        [HttpGet("recent")]
+        [ProducesResponseType(typeof(ResponseRecipesJson), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetRecent([FromServices] IGetRecentRecipesUseCase useCase)
+        {
+            var recipes = await useCase.Execute();
+            return Ok(recipes);
         }
 
         [HttpGet("{id}")]
@@ -65,5 +77,7 @@ namespace myRecipeBook.API.Controllers
             return NoContent();
 
         }
+
+    
     }
 }
