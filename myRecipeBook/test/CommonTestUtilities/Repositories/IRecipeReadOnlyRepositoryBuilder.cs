@@ -21,6 +21,16 @@ namespace CommonTestUtilities.Repositories
            
             return this;
         }
+
+        public IRecipeReadOnlyRepositoryBuilder GetRecentRecipies(User user, IList<Recipe> recipes)
+        {
+            _mock.Setup(repository => repository.GetRecentRecipes(user.Id, recipes)).ReturnsAsync(recipes);
+
+            return this;
+        }
+
+
+
         public IRecipeReadOnlyRepository Build() => _mock.Object;
     }
 }
