@@ -1,4 +1,5 @@
 ﻿using Moq;
+using myRecipeBook.Domain.Dtos;
 using myRecipeBook.Domain.Entities;
 using myRecipeBook.Domain.Repositories.Recipe;
 using System;
@@ -24,12 +25,12 @@ namespace CommonTestUtilities.Repositories
 
         public IRecipeReadOnlyRepositoryBuilder GetRecentRecipies(User user, IList<Recipe> recipes)
         {
-            _mock.Setup(repository => repository.GetRecentRecipes(user.Id)).ReturnsAsync(recipes);
+            var recipesDto = recipes.Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title)).ToList();
+
+            _mock.Setup(repository => repository.GetRecentRecipes(user.Id)).ReturnsAsync(recipesDto);
 
             return this;
         }
-
-
 
         public IRecipeReadOnlyRepository Build() => _mock.Object;
     }

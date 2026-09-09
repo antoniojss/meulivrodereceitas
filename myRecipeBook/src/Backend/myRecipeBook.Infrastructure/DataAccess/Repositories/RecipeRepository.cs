@@ -64,7 +64,7 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 .Include(recipe => recipe.Instructions.OrderBy(instruction => instruction.Order));
         }
 
-        public async Task<IList<Recipe>> GetRecentRecipes(Guid userId)
+        public async Task<IList<RecipeSummaryDto>> GetRecentRecipes(Guid userId)
         {
             return await _dbContext
                 .Recipes
@@ -72,10 +72,11 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 .Where(recipe => recipe.Active && recipe.UserId == userId)
                 .OrderByDescending(recipe => recipe.Id)
                 .Take(6)
+                .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title))
                 .ToListAsync();
         }
 
-        public async Task<IList<Recipe>> FilterRecipes(Guid userId, RecipeFilterDto filter)
+        public async Task<IList<RecipeSummaryDto>> FilterRecipes(Guid userId, RecipeFilterDto filter)
         {
             var query = _dbContext
                             .Recipes
@@ -102,7 +103,9 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 }
             }
 
-            return await query.ToListAsync();
+            return await query
+            .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title))
+            .ToListAsync();
         }
     }
 }
