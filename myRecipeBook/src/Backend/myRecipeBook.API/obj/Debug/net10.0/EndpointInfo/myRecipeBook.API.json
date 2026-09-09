@@ -170,6 +170,54 @@
         }
       }
     },
+    "/recipes/filter": {
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestFilterRecipesJson"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestFilterRecipesJson"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestFilterRecipesJson"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestFilterRecipesJson"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestFilterRecipesJson"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestFilterRecipesJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/recipes/{id}": {
       "get": {
         "tags": [
@@ -581,6 +629,26 @@
           },
           "newPassword": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestFilterRecipesJson": {
+        "type": "object",
+        "properties": {
+          "searchTerm": {
+            "type": "string",
+            "nullable": true
+          },
+          "cookTime": {
+            "$ref": "#/components/schemas/CookTime"
+          },
+          "dishTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DishType"
+            },
             "nullable": true
           }
         },

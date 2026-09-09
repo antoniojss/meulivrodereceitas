@@ -1,8 +1,11 @@
-﻿using IBM.Data.Db2;
+﻿using FluentMigrator.Runner;
+using IBM.Data.Db2;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.VisualBasic;
+using myRecipeBook.Domain.Dtos;
 using myRecipeBook.Domain.Entities;
+using myRecipeBook.Domain.Extensions;
 using myRecipeBook.Domain.Repositories.Recipe;
 using System;
 using System.Collections.Generic;
@@ -69,7 +72,37 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 .Where(recipe => recipe.Active && recipe.UserId == userId)
                 .OrderByDescending(recipe => recipe.Id)
                 .Take(6)
-                .ToListAsync(); 
+                .ToListAsync();
+        }
+
+        public async Task<IList<Recipe>> FilterRecipes(Guid userId, RecipeFilterDto filter)
+        {
+            var query = _dbContext
+                            .Recipes
+                            .AsNoTracking()
+                            .Where(recipe => recipe.Active && recipe.UserId == userId);
+
+            if (filter.CookTime is not null)
+                query = query.Where(recipe => recipe.CookTime == filter.CookTime);
+
+            if (filter.SearchTerm.IsNotEmpty())
+                query = query.Where(recipe => recipe.Title.Contains(filter.SearchTerm) || recipe.Ingredients.Any(ingredient => ingredient.Item.Contains(filter.SearchTerm)));
+
+            if (filter.DishTypes.Any())
+            {
+                //cria uma matrix com um elemento do primeiro item   
+                var recipesWithDishTypes = query.Where(recipe => recipe.DishTypes.Any(dish => dish.Type == filter.DishTypes[0]));
+                                //faz uma varredura para pegar um elemento da lista de DishTypes e adiciona na matrix
+                // dai faz uma clausula UNION para unir as duas matrizes e retorna a lista final
+                // pula o primeiro que ja montamos acima
+                foreach (var dishType in filter.DishTypes.Skip(1))
+                {
+                    recipesWithDishTypes = recipesWithDishTypes.Union(query.Where(recipe => recipe.DishTypes.Any(dish => dish.Type == dishType)));
+                    query = recipesWithDishTypes;
+                }
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

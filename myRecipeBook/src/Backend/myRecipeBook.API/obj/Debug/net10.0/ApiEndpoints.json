@@ -182,6 +182,32 @@
   },
   {
     "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
+    "Method": "Filter",
+    "RelativePath": "recipes/filter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "myRecipeBook.Communication.Requests.RequestFilterRecipesJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Requests.RequestFilterRecipesJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
     "Method": "GetRecent",
     "RelativePath": "recipes/recent",
     "HttpMethod": "GET",

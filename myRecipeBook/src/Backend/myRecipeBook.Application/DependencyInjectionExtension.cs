@@ -2,6 +2,7 @@
 using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
+using myRecipeBook.Application.UseCases.Recipe.Filters;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Application.UseCases.Recipe.Register;
@@ -39,7 +40,7 @@ namespace myRecipeBook.Application
             services.AddScoped<IDeleteRecipeByIdUseCase, DeleteRecipeByIdUseCase>();
             services.AddScoped<IUpdateRecipeByIdUseCase, UpdateRecipeByIdUseCase>();
             services.AddScoped<IGetRecentRecipesUseCase, GetRecentRecipesUseCase>();
-                               
+            services.AddScoped <IFilterRecipesUseCase, FilterRecipesUseCase>();
 
         }
     }

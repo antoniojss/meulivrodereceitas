@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
+using myRecipeBook.Application.UseCases.Recipe.Filters;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Application.UseCases.Recipe.Register;
@@ -39,6 +40,16 @@ namespace myRecipeBook.API.Controllers
         {
             var recipes = await useCase.Execute();
             return Ok(recipes);
+        }
+
+        [HttpPost("filter")]
+        [ProducesResponseType(typeof(RequestFilterRecipesJson), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Filter(
+            [FromServices] IFilterRecipesUseCase useCase,
+            [FromBody] RequestFilterRecipesJson request)
+        {
+            var response = await useCase.Execute(request);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
