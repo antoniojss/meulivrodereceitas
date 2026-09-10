@@ -2,7 +2,7 @@ name: CI
 
 # Gatilhos de disparo para a branch develop e manual
 on:
-  #workflow_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - develop
