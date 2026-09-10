@@ -31,6 +31,14 @@ namespace CommonTestUtilities.Repositories
 
             return this;
         }
+        public IRecipeReadOnlyRepositoryBuilder FilterRecipies(User user, IList<Recipe> recipes)
+        {
+            var recipesDto = recipes.Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title)).ToList();
+
+            _mock.Setup(repository => repository.FilterRecipes(user.Id,It.IsAny<RecipeFilterDto>())).ReturnsAsync(recipesDto);
+
+            return this;
+        }
 
         public IRecipeReadOnlyRepository Build() => _mock.Object;
     }

@@ -28,7 +28,7 @@ namespace myRecipeBook.Application.UseCases.Recipe.Filters
                 {
                     SearchTerm = request.SearchTerm,
                     CookTime = (Domain.Enums.CookTime?)request.CookTime,
-                    DishTypes = request.dishTypes.Select(dishType => (Domain.Enums.DishType)dishType).ToList()
+                    DishTypes = request.DishTypes.Select(dishType => (Domain.Enums.DishType)dishType).ToList()
                 };
 
 

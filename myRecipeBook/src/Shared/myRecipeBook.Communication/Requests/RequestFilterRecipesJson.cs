@@ -9,6 +9,6 @@ namespace myRecipeBook.Communication.Requests
     {
         public string? SearchTerm { get; set; }
         public CookTime? CookTime { get; set; }
-        public IList<DishType> dishTypes { get; set; } = [];
+        public IList<DishType> DishTypes { get; set; } = [];
     }
 }
