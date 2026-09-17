@@ -302,5 +302,14 @@ namespace myRecipeBook.Exception {
                 return ResourceManager.GetString("VALIDATION_RESOURCE_ACCESS_DENIED", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Code Verification , Please Verify!.
+        /// </summary>
+        public static string VALIDATION_VERIFICATION_CODE_INVALID {
+            get {
+                return ResourceManager.GetString("VALIDATION_VERIFICATION_CODE_INVALID", resourceCulture);
+            }
+        }
     }
 }

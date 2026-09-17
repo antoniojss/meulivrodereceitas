@@ -1213,7 +1213,8 @@
           "Mapster": "10.0.8",
           "myRecipeBook.Communication": "1.0.0",
           "myRecipeBook.Domain": "1.0.0",
-          "myRecipeBook.Exception": "1.0.0"
+          "myRecipeBook.Exception": "1.0.0",
+          "myRecipeBook.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/myRecipeBook.Application.dll": {}

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
+using myRecipeBook.Application.UseCases.PasswordRecovery.RequestCode;
+using myRecipeBook.Application.UseCases.PasswordRecovery.ResetPassword;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
 using myRecipeBook.Application.UseCases.Recipe.Filters;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
@@ -11,6 +13,8 @@ using myRecipeBook.Application.UseCases.User.ChangePassword;
 using myRecipeBook.Application.UseCases.User.Profile;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Application.UseCases.User.Update;
+using myRecipeBook.Domain.Repositories.VerificationCode;
+using myRecipeBook.Infrastructure.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -41,6 +45,10 @@ namespace myRecipeBook.Application
             services.AddScoped<IUpdateRecipeByIdUseCase, UpdateRecipeByIdUseCase>();
             services.AddScoped<IGetRecentRecipesUseCase, GetRecentRecipesUseCase>();
             services.AddScoped <IFilterRecipesUseCase, FilterRecipesUseCase>();
+     
+            //Verification Code  
+            services.AddScoped <IRequestPasswordRecoveryCodeUseCase, RequestPasswordRecoveryCodeUseCase>();
+            services.AddScoped<IResetPasswordUseCase, ResetPasswordUseCase>();   
 
         }
     }

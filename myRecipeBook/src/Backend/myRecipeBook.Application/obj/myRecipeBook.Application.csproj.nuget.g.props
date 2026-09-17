@@ -13,4 +13,10 @@
     <SourceRoot Include="C:\Users\anton\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\10.0.9\buildTransitive\net10.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\10.0.9\buildTransitive\net10.0\Microsoft.EntityFrameworkCore.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNet_IBM_Data_Db2 Condition=" '$(PkgNet_IBM_Data_Db2)' == '' ">C:\Users\anton\.nuget\packages\net.ibm.data.db2\9.0.0.300</PkgNet_IBM_Data_Db2>
+  </PropertyGroup>
 </Project>

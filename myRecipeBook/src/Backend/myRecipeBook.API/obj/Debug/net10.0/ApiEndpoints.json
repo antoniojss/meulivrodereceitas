@@ -2,7 +2,7 @@
   {
     "ContainingType": "myRecipeBook.API.Controllers.AuthenticationController",
     "Method": "Login",
-    "RelativePath": "authentication",
+    "RelativePath": "authentication/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -31,6 +31,63 @@
           "text/json"
         ],
         "StatusCode": 401
+      }
+    ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.AuthenticationController",
+    "Method": "PasswordRecovery",
+    "RelativePath": "authentication/password-recovery",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "myRecipeBook.Communication.Requests.RequestPasswordRecoveryJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseRegistredUserJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 202
+      }
+    ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.AuthenticationController",
+    "Method": "ResetPassword",
+    "RelativePath": "authentication/password-recovery/reset",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "myRecipeBook.Communication.Requests.RequestResetPasswordJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseRegistredUserJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       }
     ]
   },

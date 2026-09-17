@@ -198,4 +198,7 @@
   <data name="VALIDATION_RESOURCE_ACCESS_DENIED" xml:space="preserve">
     <value>Você não tem acesso a este recurso .Por favor Verifique!</value>
   </data>
+  <data name="VALIDATION_VERIFICATION_CODE_INVALID" xml:space="preserve">
+    <value>Código de Verificação Invalido. Por Favor Verifique!</value>
+  </data>
 </root>
