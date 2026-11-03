@@ -100,9 +100,39 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "myRecipeBook.Communication.Requests.RequestRecipeJson",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CookTime",
+        "Type": "myRecipeBook.Communication.Enums.CookTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ingredients",
+        "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Instructions",
+        "Type": "System.Collections.Generic.IList\u00601[[myRecipeBook.Communication.Requests.RequestRecipeInstructionJson, myRecipeBook.Communication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DishTypes",
+        "Type": "System.Collections.Generic.IList\u00601[[myRecipeBook.Communication.Enums.DishType, myRecipeBook.Communication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "recipeIllustration",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -265,6 +295,41 @@
   },
   {
     "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
+    "Method": "GenerateRecipe",
+    "RelativePath": "recipes/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "myRecipeBook.Communication.Requests.RequestGenerateRecipeJson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseGeneratedRecipeJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseErrorJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.RecipesController",
     "Method": "GetRecent",
     "RelativePath": "recipes/recent",
     "HttpMethod": "GET",
@@ -381,6 +446,37 @@
         "Name": "request",
         "Type": "myRecipeBook.Communication.Requests.RequestUpdateUserJson",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "myRecipeBook.Communication.Responses.ResponseErrorJson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "myRecipeBook.API.Controllers.UsersController",
+    "Method": "ChangeProfilePicture",
+    "RelativePath": "users/profile-picture",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

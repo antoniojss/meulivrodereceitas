@@ -72,7 +72,7 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                 .Where(recipe => recipe.Active && recipe.UserId == userId)
                 .OrderByDescending(recipe => recipe.Id)
                 .Take(6)
-                .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title))
+                .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title, recipe.HasImage))
                 .ToListAsync();
         }
 
@@ -104,7 +104,7 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
             }
 
             return await query
-            .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title))
+            .Select(recipe => new RecipeSummaryDto(recipe.Id, recipe.Title, recipe.HasImage))
             .ToListAsync();
         }
     }

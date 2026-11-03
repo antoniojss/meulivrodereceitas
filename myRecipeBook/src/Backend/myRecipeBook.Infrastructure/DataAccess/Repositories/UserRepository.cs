@@ -55,5 +55,14 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
                .ExecuteUpdateAsync(setters =>
                    setters.SetProperty(user => user.Password, passwordHash));
         }
+
+        public async Task UpdateProfilePictureStatus(Guid userId, bool hasProfilePicture)
+        {
+            await _dbContext
+              .Users
+              .Where(user => user.Id == userId)
+              .ExecuteUpdateAsync(setters =>
+                  setters.SetProperty(user => user.HasImage, hasProfilePicture));
+        }
     }
 }

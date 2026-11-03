@@ -8,6 +8,7 @@
         // e as 12 ultimas posicoes sao aleatorias, garantindo a unicidade do Id
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public bool HasImage { get; set; } = false; 
         public string Password { get; set; } = string.Empty;
     }
 }

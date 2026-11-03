@@ -2,6 +2,7 @@
 using myRecipeBook.Communication.Responses;
 using myRecipeBook.Domain.Identity;
 using myRecipeBook.Domain.Repositories.Recipe;
+using myRecipeBook.Domain.Storage;
 using myRecipeBook.Exception;
 using myRecipeBook.Exception.ExceptionBase;
 using System;
@@ -16,10 +17,16 @@ namespace myRecipeBook.Application.UseCases.Recipe.GetById
         private readonly IRecipeReadOnlyRepository _repository;
         private readonly ILoggedUser _loggedUser;
 
-        public GetRecipeByIdUseCase(IRecipeReadOnlyRepository repository, ILoggedUser loggedUser)
+        private readonly IStorageService _storageService;
+
+        public GetRecipeByIdUseCase(
+            IRecipeReadOnlyRepository repository, 
+            ILoggedUser loggedUser,
+            IStorageService storageService)
         {
             _repository = repository;
-            _loggedUser = loggedUser;   
+            _loggedUser = loggedUser;
+            _storageService = storageService;
         }
 
         public async Task<ResponseRecipeJson> Execute(Guid recipeId)
@@ -28,7 +35,9 @@ namespace myRecipeBook.Application.UseCases.Recipe.GetById
             if (recipe is null)
                 throw new NotFoundException(ResourceMessagesException.VALIDATION_INVALID_RECIPE_NOT_FOUND);
            
-            return recipe.Adapt<ResponseRecipeJson>();
+            var response = recipe.Adapt<ResponseRecipeJson>();
+            response.ImageUrl = recipe.HasImage ? _storageService.GetRecipeIllustrationUrl(userId: recipe.UserId, recipeId = recipe.Id) : string.Empty;
+            return response;  
         }
     }
 }

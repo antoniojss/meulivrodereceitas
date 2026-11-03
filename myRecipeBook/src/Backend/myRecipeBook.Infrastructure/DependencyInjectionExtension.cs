@@ -1,26 +1,28 @@
-﻿using FluentMigrator.Runner;
+using Azure.Storage.Blobs;
+using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using myRecipeBook.Domain.AI;
 using myRecipeBook.Domain.Identity;
 using myRecipeBook.Domain.Repositories;
 using myRecipeBook.Domain.Repositories.Recipe;
+using myRecipeBook.Domain.Repositories.RefreshToken;
 using myRecipeBook.Domain.Repositories.User;
 using myRecipeBook.Domain.Repositories.VerificationCode;
 using myRecipeBook.Domain.Security.PasswordHashing;
 using myRecipeBook.Domain.Security.Tokens;
+using myRecipeBook.Domain.Storage;
+using myRecipeBook.Infrastructure.AI;
 using myRecipeBook.Infrastructure.DataAccess;
 using myRecipeBook.Infrastructure.DataAccess.Repositories;
 using myRecipeBook.Infrastructure.Identity;
 using myRecipeBook.Infrastructure.Security.PasswordHashing;
 using myRecipeBook.Infrastructure.Security.Tokens.Access;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Configuration;
-using System.Configuration.Internal;
+using myRecipeBook.Infrastructure.Security.Tokens.Refresh;
+using myRecipeBook.Infrastructure.Storage;
+using OllamaSharp;
 using System.Reflection;
-using System.Text;
 
 namespace myRecipeBook.Infrastructure
 {
@@ -32,11 +34,19 @@ namespace myRecipeBook.Infrastructure
             {
                 services.AddRepositories();
 
-                services.AddTokensHandler(configuration);
+                services.AddAI(configuration);
+
+                services.AddSecurity(configuration);
+
+                services.AddScoped<IStorageService>(config =>
+                 {
+                     var blobStorageConnectionString = configuration.GetConnectionString("BlobStorage")!;
+                     var blobServiceClient = new BlobServiceClient(blobStorageConnectionString);
+
+                     return new AzureStorageService(blobServiceClient);
+                 });
 
                 services.AddScoped<ILoggedUser, LoggedUser>();
-
-                services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
 
                 services.AddDbContext<MyRecipeBookDbContext>(config =>
                 {
@@ -80,12 +90,19 @@ namespace myRecipeBook.Infrastructure
 
                 // VerificationCodeRepository   
                 services.AddScoped<IVerificationCodeWriteOnlyRepository, VerificationCodeRepository>();
-                services.AddScoped<IVerificationCodeReadOnlyRepository, VerificationCodeRepository>(); 
+                services.AddScoped<IVerificationCodeReadOnlyRepository, VerificationCodeRepository>();
+
+
+                services.AddScoped<IRefreshTokenWriteOnlyRepository, RefreshTokenRepository>();
             }
 
 
-            private void AddTokensHandler(IConfiguration configuration)
+            private void AddSecurity(IConfiguration configuration)
             {
+                services.AddScoped<IPasswordHasher, Argon2PasswordHasher>();
+
+                services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
+
                 services.AddScoped<IAccessTokenGenerator>(
                 provider =>
                 {
@@ -95,6 +112,45 @@ namespace myRecipeBook.Infrastructure
                     return new JwtTokenHandler(expirationTimeMinutes, signingKey);
 
                 });
+            }
+
+            private  void AddAI(IConfiguration configuration)
+            {
+                // Registrar o IOllamaApiClient (configurando o HttpClient com o Timeout do appsettings)
+                services.AddSingleton<IOllamaApiClient>(provider =>
+                {
+                    var endpoint = configuration.GetValue<string>("Settings:Ollama:Endpoint")!;
+                    var timeoutSeconds = configuration.GetValue<int>("Settings:Ollama:TimeoutSeconds");
+
+                    // Criamos o HttpClient manualmente para aplicar o Timeout configurado
+                    var httpClient = new HttpClient
+                    {
+                        BaseAddress = new Uri(endpoint),
+                        Timeout = TimeSpan.FromSeconds(timeoutSeconds > 0 ? timeoutSeconds : 300) // Fallback para 5 min se não configurado
+                    };
+
+                    // Passamos o httpClient e o modelo padrão (opcional no construtor do client, mas boa prática)
+                    var modelName = configuration.GetValue<string>("Settings:Ollama:ModelName")!;
+                    return new OllamaApiClient(httpClient, modelName);
+                });
+
+                // Registrar o OllamaSharp.Chat (serviço de chat)
+                services.AddSingleton<Chat>(provider =>
+                {
+                    var apiClient = provider.GetRequiredService<IOllamaApiClient>();
+                    var modelName = configuration.GetValue<string>("Settings:Ollama:ModelName")!;
+
+                    // Criar um Chat com o modelo configurado
+                    var chat = new Chat(apiClient, modelName)
+                    {
+                        Model = modelName,  // Garantir que o modelo está definido
+                    };
+
+                    return chat;
+                });
+
+                // Registrar o serviço de IA do domínio
+                services.AddScoped<IGenerateRecipeAI, ChatAIServices>();
             }
         }
     }

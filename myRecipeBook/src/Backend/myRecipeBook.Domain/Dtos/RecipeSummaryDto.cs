@@ -4,5 +4,5 @@ using System.Text;
 
 namespace myRecipeBook.Domain.Dtos
 {
-    public record RecipeSummaryDto(Guid Id, String Title); 
+    public record RecipeSummaryDto(Guid Id, String Title, bool HasImage); 
 }

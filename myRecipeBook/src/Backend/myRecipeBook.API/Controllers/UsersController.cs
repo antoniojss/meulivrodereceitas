@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.User.ChangePassword;
+using myRecipeBook.Application.UseCases.User.ChangeProfilePicture;
 using myRecipeBook.Application.UseCases.User.Profile;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Application.UseCases.User.Update;
@@ -78,5 +79,19 @@ namespace myRecipeBook.API.Controllers
             await useCase.Execute(request);
             return NoContent();
         }
+
+        [HttpPut("profile-picture")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ChangeProfilePicture(
+            [FromServices] IChangeProfilePictureUseCase useCase,
+            IFormFile profilePicture)
+        {
+            await useCase.Execute(profilePicture.OpenReadStream());
+
+            return NoContent();
+        }
+
     }
 }

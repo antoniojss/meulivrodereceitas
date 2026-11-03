@@ -15,6 +15,8 @@ namespace myRecipeBook.Infrastructure.DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<VerificationCode> VerificationCodes { get; set; }
+         
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,6 +48,8 @@ namespace myRecipeBook.Infrastructure.DataAccess
             modelBuilder.Entity<VerificationCode>().Property(verificationCode => verificationCode.Type).HasConversion<string>();
 
             modelBuilder.Entity<VerificationCode>().HasOne<User>().WithMany().HasForeignKey(verificationCode => verificationCode.UserId);
+
+            modelBuilder.Entity<RefreshToken>().HasOne<User>().WithMany().HasForeignKey(refreshToken => refreshToken.UserId);
         }
     }
 }

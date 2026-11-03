@@ -16,6 +16,7 @@ namespace WebApi.Tests.Recipe.Filter
     {
         private const string REQUEST_URI = "/recipes/filter";
         private readonly UserIdentityManager _user1;
+      
         public FilterRecipeTests(MyRecipeBookApplicationFactory factory) : base(factory)
         {
             _user1 = factory.User1;
@@ -29,7 +30,7 @@ namespace WebApi.Tests.Recipe.Filter
 
             var request = new RequestFilterRecipesJson
                {
-                   SearchTerm = recipe.Title,
+                   SearchTerm= recipe.Title,
                    CookTime = (CookTime)recipe.CookTime,
                    DishTypes = recipe.DishTypes.Select(dishType => (DishType)dishType.Type).ToList()
                };

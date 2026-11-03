@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.Recipe.DeleteById;
 using myRecipeBook.Application.UseCases.Recipe.Filters;
+using myRecipeBook.Application.UseCases.Recipe.GeneratedRecipeAI;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Application.UseCases.Recipe.Register;
@@ -23,10 +24,11 @@ namespace myRecipeBook.API.Controllers
         [ProducesResponseType(typeof(ResponseRegistredRecipeJson), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register(
-                                    [FromBody] RequestRecipeJson request,
-                                    [FromServices] IRegisterRecipeUseCase useCase)
+                                    [FromForm] RequestRecipeJson request,
+                                    [FromServices] IRegisterRecipeUseCase useCase,
+                                    IFormFile? recipeIllustration)
         {
-            var result = await useCase.Execute(request);
+            var result = await useCase.Execute(request, recipeIllustration?.OpenReadStream());
             // registra a receita 
             return Created(string.Empty, result);
         }
@@ -89,6 +91,17 @@ namespace myRecipeBook.API.Controllers
 
         }
 
-    
+        [HttpPost("generate")]
+        [ProducesResponseType(typeof(ResponseGeneratedRecipeJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GenerateRecipe(
+           [FromServices] IGenerateRecipeAIUseCase useCase,
+           [FromBody] RequestGenerateRecipeJson request)
+        {
+            var response = await useCase.Execute(request);
+            return Ok(response);
+        }
+
+
     }
 }

@@ -1,9 +1,13 @@
-﻿using CommonTestUtilities.Entities;
+﻿using CommonTestUtilities.AI;
+using CommonTestUtilities.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using myRecipeBook.Domain.AI;
 using myRecipeBook.Domain.Security.PasswordHashing;
 using myRecipeBook.Domain.Security.Tokens;
 using myRecipeBook.Infrastructure.DataAccess;
@@ -12,6 +16,7 @@ using System.Collections.Generic;
 using System.Text;
 using Testcontainers.MySql;
 using WebApi.Tests.Resources;
+[assembly: Xunit.CollectionBehavior(DisableTestParallelization = true)]       
 
 namespace WebApi.Tests
 {
@@ -42,7 +47,12 @@ namespace WebApi.Tests
 
                     configuration.AddInMemoryCollection(parametres);
 
-                });
+                })
+                .ConfigureTestServices(services =>
+                {
+                    services.RemoveAll<IGenerateRecipeAI>();
+                    services.AddScoped(_ => IGenerateRecipeAIBuilder.Build());
+                }); 
         }
         public async Task InitializeAsync()
         {

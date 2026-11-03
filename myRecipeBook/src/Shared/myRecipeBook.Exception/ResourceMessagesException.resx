@@ -201,4 +201,10 @@
   <data name="VALIDATION_VERIFICATION_CODE_INVALID" xml:space="preserve">
     <value>Invalid Code Verification , Please Verify!</value>
   </data>
+  <data name="VALIDATION_VERIFICATION_ONLY_IMAGES_ACCEPTED" xml:space="preserve">
+    <value>Only image JPG/JPEG are accepted. Please Veriffy!</value>
+  </data>
+  <data name="VALIDATION_UNABLE_TO_GENERATE_RECIPE" xml:space="preserve">
+    <value>Unable To Generate Recipe for AI , please verify!</value>
+  </data>
 </root>

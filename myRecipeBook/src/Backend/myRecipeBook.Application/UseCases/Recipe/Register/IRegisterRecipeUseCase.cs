@@ -8,6 +8,6 @@ namespace myRecipeBook.Application.UseCases.Recipe.Register
 {
   public interface IRegisterRecipeUseCase
     {
-        Task<ResponseRegistredRecipeJson> Execute(RequestRecipeJson request);
+        Task<ResponseRegistredRecipeJson> Execute(RequestRecipeJson request,Stream? recipeIllustration);
     }
 }

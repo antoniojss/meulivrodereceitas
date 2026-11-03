@@ -1,9 +1,11 @@
 ﻿using CommonTestUtilities.Entities;
 using CommonTestUtilities.Identity;
 using CommonTestUtilities.Repositories;
+using CommonTestUtilities.Storage;
 using myRecipeBook.Application.UseCases.Recipe.Filters;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Communication.Requests;
+using myRecipeBook.Domain.Storage;
 using Shouldly;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Text;
 
 namespace UseCases.Tests.Recipe.Filter
 {
-    public class FilterRecipesUseCaseTests
+    public class FilterRecipesUseCaseTests 
     {
         [Fact]
         public async Task Successs()
@@ -57,8 +59,9 @@ namespace UseCases.Tests.Recipe.Filter
 
             var loggedUser = ILoggedUserBuilder.Build(user);
             var repository = new IRecipeReadOnlyRepositoryBuilder().FilterRecipies(user, recipes).Build();
+            var storageService = IStorageServiceBuilder.Build();
 
-            return new FilterRecipesUseCase(repository, loggedUser);
+            return new FilterRecipesUseCase(repository, loggedUser, storageService);
 
         }
 

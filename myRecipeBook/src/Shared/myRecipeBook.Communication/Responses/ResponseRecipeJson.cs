@@ -9,6 +9,7 @@ namespace myRecipeBook.Communication.Responses
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
         public IList<string> Ingredients { get; set; } = [];
         public IList<ResponseInstructionJson> Instructions { get; set; } = [];
         public IList<DishType> DishTypes { get; set; } = [];

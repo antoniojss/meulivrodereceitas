@@ -304,11 +304,29 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Unable To Generate Recipe for AI , please verify!.
+        /// </summary>
+        public static string VALIDATION_UNABLE_TO_GENERATE_RECIPE {
+            get {
+                return ResourceManager.GetString("VALIDATION_UNABLE_TO_GENERATE_RECIPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Code Verification , Please Verify!.
         /// </summary>
         public static string VALIDATION_VERIFICATION_CODE_INVALID {
             get {
                 return ResourceManager.GetString("VALIDATION_VERIFICATION_CODE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Only image JPG/JPEG are accepted. Please Veriffy!.
+        /// </summary>
+        public static string VALIDATION_VERIFICATION_ONLY_IMAGES_ACCEPTED {
+            get {
+                return ResourceManager.GetString("VALIDATION_VERIFICATION_ONLY_IMAGES_ACCEPTED", resourceCulture);
             }
         }
     }

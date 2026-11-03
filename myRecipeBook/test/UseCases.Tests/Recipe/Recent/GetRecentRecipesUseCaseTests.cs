@@ -2,6 +2,7 @@
 using CommonTestUtilities.Identity;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Requests;
+using CommonTestUtilities.Storage;
 using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
@@ -58,8 +59,9 @@ namespace UseCases.Tests.Recipe.Recent
 
             var loggedUser = ILoggedUserBuilder.Build(user);
             var repository = new IRecipeReadOnlyRepositoryBuilder().GetRecentRecipies(user, recipes).Build();
+            var storageService = IStorageServiceBuilder.Build();
 
-            return new GetRecentRecipesUseCase(repository, loggedUser);
+            return new GetRecentRecipesUseCase(repository, loggedUser, storageService);
 
         }
 

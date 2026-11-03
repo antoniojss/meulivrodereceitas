@@ -201,4 +201,10 @@
   <data name="VALIDATION_VERIFICATION_CODE_INVALID" xml:space="preserve">
     <value>Código de verificación no válido. ¡Por favor, verifíquelo!</value>
   </data>
+  <data name="VALIDATION_VERIFICATION_ONLY_IMAGES_ACCEPTED" xml:space="preserve">
+    <value>Solo se aceptan imágenes en formato JPG/JPEG. ¡Por favor, verifique!</value>
+  </data>
+  <data name="VALIDATION_UNABLE_TO_GENERATE_RECIPE" xml:space="preserve">
+    <value>No se pudo generar la receta mediante IA.</value>
+  </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿using CommonTestUtilities.Entities;
 using CommonTestUtilities.Identity;
 using CommonTestUtilities.Repositories;
+using CommonTestUtilities.Storage;
 using Mapster;
 using myRecipeBook.Application.Mappings;
 using myRecipeBook.Application.UseCases.Recipe.GetById;
@@ -63,8 +64,9 @@ namespace UseCases.Tests.Recipe.GetById
 
             var loggedUser = ILoggedUserBuilder.Build(user);
             var repository = new IRecipeReadOnlyRepositoryBuilder().GetById(recipe).Build();
+            var storageService = IStorageServiceBuilder.Build();
 
-            return new GetRecipeByIdUseCase(repository, loggedUser);
+            return new GetRecipeByIdUseCase(repository, loggedUser, storageService);
 
         }
     

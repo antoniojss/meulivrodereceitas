@@ -1,6 +1,7 @@
 using CommonTestUtilities.Requests;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Identity;
+using CommonTestUtilities.Storage;
 using myRecipeBook.Application.UseCases.Recipe.Register;
 using myRecipeBook.Exception;
 using myRecipeBook.Exception.ExceptionBase;
@@ -28,7 +29,7 @@ namespace UseCases.Tests.Recipe.Register
 
             var useCase = CreateUseCase();
 
-            var result = await useCase.Execute(request);
+            var result = await useCase.Execute(request, recipeIllustration:null);
           
             result.ShouldNotBeNull();
             result.Title.ShouldBe(result.Title);
@@ -44,7 +45,7 @@ namespace UseCases.Tests.Recipe.Register
 
             var useCase = CreateUseCase();
 
-            var exception = await useCase.Execute(request).ShouldThrowAsync<ErrorOnValidationException>();
+            var exception = await useCase.Execute(request, recipeIllustration:null).ShouldThrowAsync<ErrorOnValidationException>();
 
             exception.GetStatusCode().ShouldBe(HttpStatusCode.BadRequest);
 
@@ -65,7 +66,7 @@ namespace UseCases.Tests.Recipe.Register
             var useCase = CreateUseCase();
 
             // Act & Assert
-            var exception = await useCase.Execute(request).ShouldThrowAsync<ErrorOnValidationException>();
+            var exception = await useCase.Execute(request, recipeIllustration:null  ).ShouldThrowAsync<ErrorOnValidationException>();
 
             exception.GetStatusCode().ShouldBe(HttpStatusCode.BadRequest);
 
@@ -85,8 +86,10 @@ namespace UseCases.Tests.Recipe.Register
             var recipeWriteOnlyRepository = new IRecipeWriteOnlyRepositoryBuilder().Build();
 
             var unitOfWork = UnitOfWorkBuilder.Build();
-            
-            return new RegisterRecipeUseCase(recipeWriteOnlyRepository, loggedUser, unitOfWork);
+
+            var storageService = IStorageServiceBuilder.Build();
+
+            return new RegisterRecipeUseCase(recipeWriteOnlyRepository, loggedUser, unitOfWork, storageService);
         }
     }
 }

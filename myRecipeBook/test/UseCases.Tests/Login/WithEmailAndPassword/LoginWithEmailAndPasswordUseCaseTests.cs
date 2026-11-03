@@ -2,6 +2,7 @@
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Requests;
 using CommonTestUtilities.Security;
+using CommonTestUtilities.Storage;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
 using myRecipeBook.Application.UseCases.User.Register;
 using myRecipeBook.Domain.Extensions;
@@ -16,12 +17,16 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
 {
     public class LoginWithEmailAndPasswordUseCaseTests
     {
-        [Fact]
-        public async Task Success()
+        [Theory]
+        [InlineData(true, IStorageServiceBuilder.FakeUrl)]
+        [InlineData(false, "")]
+        public async Task Success(bool hasImage, string expectedUrl)
         {
             // Arrange
             var (user, _) = UserBuilder.Build();
                         
+            user.HasImage = hasImage;   
+
             var request = RequestLoginJsonBuilder.Build();
             request.Email = user.Email;
 
@@ -34,6 +39,7 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
             result.Name.ShouldBe(user.Name);
             result.Tokens.AccessToken.ShouldNotBeNullOrEmpty();
             result.Tokens.RefreshToken.ShouldBeNullOrEmpty();
+            result.ImageUrl.ShouldBe(expectedUrl);  
 
         }
 
@@ -85,13 +91,15 @@ namespace UseCases.Tests.Login.WithEmailAndPassword
 
             var userReadOnlyRepositoryBuilder = new IUserReadOnlyRepositoryBuilder();
 
+            var storageService = IStorageServiceBuilder.Build();
+
             if (user is not null)
                 userReadOnlyRepositoryBuilder.GetByEmail(user);
 
             if (password.IsNotEmpty())
                 passwordHaserBilder.VerifyPassword(password);
 
-            return new LoginWithEmailAndPasswordUseCase(passwordHaserBilder.Build(), userReadOnlyRepositoryBuilder.Build(), accessTokenGeneratorBuilder);
+            return new LoginWithEmailAndPasswordUseCase(passwordHaserBilder.Build(), userReadOnlyRepositoryBuilder.Build(), accessTokenGeneratorBuilder, storageService);
         }
     }
 }

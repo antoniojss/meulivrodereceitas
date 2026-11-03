@@ -5,7 +5,7 @@ namespace myRecipeBook.Domain.Entities
     public class Recipe : EntityBase
     {
         public string Title { get; set; } = string.Empty;
-
+        public bool HasImage { get; set; } =false;
         public ICollection<RecipeIngredient> Ingredients { get; set; } = new List<RecipeIngredient>();
         public ICollection<RecipeInstruction> Instructions { get; set; } = new List<RecipeInstruction>();
         public ICollection<RecipeDishType> DishTypes { get; set; } = new List<RecipeDishType>();
