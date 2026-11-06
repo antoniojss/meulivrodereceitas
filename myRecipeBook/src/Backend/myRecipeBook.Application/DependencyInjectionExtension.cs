@@ -11,6 +11,7 @@ using myRecipeBook.Application.UseCases.Recipe.GetById;
 using myRecipeBook.Application.UseCases.Recipe.Recent;
 using myRecipeBook.Application.UseCases.Recipe.Register;
 using myRecipeBook.Application.UseCases.Recipe.UpdateById;
+using myRecipeBook.Application.UseCases.Token.UserRefreshToken;
 using myRecipeBook.Application.UseCases.User.ChangePassword;
 using myRecipeBook.Application.UseCases.User.ChangeProfilePicture;
 using myRecipeBook.Application.UseCases.User.Profile;
@@ -56,6 +57,8 @@ namespace myRecipeBook.Application
             services.AddScoped<IChangeProfilePictureUseCase, ChangeProfilePictureUseCase>();
 
             services.AddScoped<IGenerateRecipeAIUseCase, GenerateRecipeAIUseCase>();
+
+            services.AddScoped<IUserRefreshTokenUseCase, UserRefreshTokenUseCase>();
         }
     }
 }

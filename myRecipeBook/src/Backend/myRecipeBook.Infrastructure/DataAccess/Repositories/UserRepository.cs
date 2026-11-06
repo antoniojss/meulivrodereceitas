@@ -64,5 +64,12 @@ namespace myRecipeBook.Infrastructure.DataAccess.Repositories
               .ExecuteUpdateAsync(setters =>
                   setters.SetProperty(user => user.HasImage, hasProfilePicture));
         }
-    }
+
+        public async Task<User?> GetById(Guid userId)
+        {
+            return await _dbContext.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(user => user.Active && user.Id.Equals(userId));
+        }
+   }
 }

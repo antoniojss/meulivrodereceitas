@@ -207,4 +207,7 @@
   <data name="VALIDATION_UNABLE_TO_GENERATE_RECIPE" xml:space="preserve">
     <value>Não e possivel gerar a receita por IA, por fvaor verifique!</value>
   </data>
+  <data name="REFRESH_TOKEN_EXPIRED" xml:space="preserve">
+    <value>Refresh Token Expirado. Por Favor Verifique </value>
+  </data>
 </root>

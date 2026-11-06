@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using myRecipeBook.Application.UseCases.Login.WithEmailAndPassword;
 using myRecipeBook.Application.UseCases.PasswordRecovery.RequestCode;
 using myRecipeBook.Application.UseCases.PasswordRecovery.ResetPassword;
+using myRecipeBook.Application.UseCases.Token.UserRefreshToken;
 using myRecipeBook.Communication.Requests;
 using myRecipeBook.Communication.Responses;
 
@@ -47,6 +48,19 @@ namespace myRecipeBook.API.Controllers
             await useCase.Execute(request);
             
             return NoContent();  
+        }
+
+        [HttpPost("token/refresh")]
+        [ProducesResponseType(typeof(ResponseTokensJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
+
+        public async Task<IActionResult> UserRefreshToken(
+            [FromServices] IUserRefreshTokenUseCase useCase,
+            [FromBody] RequestNewTokenJson request)
+        {
+            var response = await useCase.Execute(request);
+
+            return Ok(response);
         }
     }
 }

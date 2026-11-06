@@ -207,4 +207,7 @@
   <data name="VALIDATION_UNABLE_TO_GENERATE_RECIPE" xml:space="preserve">
     <value>Unable To Generate Recipe for AI , please verify!</value>
   </data>
+  <data name="REFRESH_TOKEN_EXPIRED" xml:space="preserve">
+    <value>Refresh Token Expired. Please Verify!</value>
+  </data>
 </root>

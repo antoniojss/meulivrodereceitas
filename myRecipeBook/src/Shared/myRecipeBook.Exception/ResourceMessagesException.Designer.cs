@@ -70,6 +70,15 @@ namespace myRecipeBook.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Refresh Token Expired. Please Verify!.
+        /// </summary>
+        public static string REFRESH_TOKEN_EXPIRED {
+            get {
+                return ResourceManager.GetString("REFRESH_TOKEN_EXPIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Internal server error! Please check!.
         /// </summary>
         public static string UNKNOWN_ERROR {

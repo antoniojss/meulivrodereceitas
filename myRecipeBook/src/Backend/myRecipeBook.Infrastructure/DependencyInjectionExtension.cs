@@ -94,6 +94,8 @@ namespace myRecipeBook.Infrastructure
 
 
                 services.AddScoped<IRefreshTokenWriteOnlyRepository, RefreshTokenRepository>();
+
+                services.AddScoped<IRefreshTokenReadOnlyRepository, RefreshTokenRepository>();
             }
 
 
